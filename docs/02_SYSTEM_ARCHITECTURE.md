@@ -8,11 +8,11 @@ Last Updated: 2026-07-05
 
 # Purpose
 
-This document defines the complete system architecture behind Aura AI.
+This document defines the complete technical architecture behind Aura AI.
 
-It explains how every content request flows through the system, how the internal AI engines operate, and how Aura Brain controls the behaviour of the application.
+It explains how user requests flow through the system, how the internal AI engines operate, and how Aura Brain controls every AI decision.
 
-This document is intended for developers and AI engineers only.
+This documentation is intended for developers and AI engineers only.
 
 ---
 
@@ -20,18 +20,21 @@ This document is intended for developers and AI engineers only.
 
 Aura AI is designed around one core principle:
 
-> Users should experience a simple interface while the AI handles the complexity internally.
+> **The user experiences simplicity while the AI handles complexity.**
 
-Everything related to content quality, validation, optimisation, and decision making happens behind the scenes.
+Users should never need to understand how content is generated internally.
 
-The user should never need to understand how the system works internally.
+Every strategic decision, writing decision, validation process, optimisation, and quality control happens entirely behind the scenes.
+
+To users, there is only one product:
+
+Aura AI.
 
 ---
 
 # High-Level Architecture
 
-Aura AI follows the architecture below.
-
+```
 User
 
 ↓
@@ -65,108 +68,126 @@ Aura AI Frontend
 ↓
 
 User
+```
 
 ---
 
 # Component Overview
 
-## 1. Aura AI Frontend
+## Aura AI Frontend
 
-The frontend is responsible for user interaction only.
+The frontend is responsible only for user interaction.
 
 Responsibilities include:
 
 - Collect user inputs
-- Send generation requests
+- Connect social media accounts
 - Display generated threads
 - Manage drafts
 - Manage scheduling
-- Connect social media accounts
 - Display analytics
+- Handle publishing actions
 
-The frontend never performs content generation or validation.
-
----
-
-## 2. Gemini API
-
-Gemini is the language model responsible for generating and refining content.
-
-Gemini does not make independent decisions.
-
-Its behaviour is controlled entirely by Aura Brain.
+The frontend never generates or validates content.
 
 ---
 
-## 3. Aura Brain
+## Gemini API
 
-Aura Brain is the central knowledge base powering Aura AI.
+Gemini is the language model powering Aura AI.
 
-It contains:
+Gemini is responsible for language generation only.
 
-- Product rules
-- Writing rules
-- HERO Engine rules
-- AURA Engine rules
-- Writing mode behaviour
-- Scoring rules
-- UX behaviour
+It does not decide how to write.
+
+Every writing behaviour is controlled by Aura Brain.
+
+---
+
+## Aura Brain
+
+Aura Brain is the central knowledge base of Aura AI.
+
+It stores every rule that controls the AI.
+
+Contents include:
+
+- Product philosophy
+- Writing methodologies
+- HERO Engine behaviour
+- AURA Engine behaviour
+- Writing mode definitions
+- Human writing guidelines
+- Psychology rules
+- CTA rules
+- Scoring standards
 - Prompt templates
 - Internal examples
 
-Aura Brain acts as the single source of truth for every AI interaction.
+Aura Brain is the single source of truth.
+
+The application should never contain hardcoded writing logic.
 
 If Aura Brain changes, the AI behaviour changes.
 
-The application itself should never contain hardcoded writing logic.
-
 ---
 
-# HERO Engine
+## HERO Engine
 
 HERO is the internal content generation engine.
 
-It is never exposed to users.
+Its responsibility is to transform user intent into structured, high-retention Threads.
 
-Its responsibility is to generate the initial version of the requested content based on:
+HERO does not validate quality.
 
-- Writing Mode
-- Topic
-- Language
-- Hook Style
-- Thread Count
-- Posts Per Thread
-- Aura Brain rules
-
-HERO focuses only on generating content.
-
-It does not validate quality.
+HERO only generates content.
 
 ---
 
-# AURA Engine
+## AURA Engine
 
 AURA is the internal validation engine.
 
-It is never exposed to users.
+Its responsibility is to review HERO's output before it reaches the user.
 
-Its responsibility is to review HERO's output before anything is shown to the user.
+AURA improves weak sections, validates writing quality, and ensures every generated thread follows Aura Brain standards.
 
-AURA does not generate new threads.
-
-Instead, it improves individual sections that do not meet Aura Brain standards.
+Only approved content is returned to users.
 
 ---
 
-# Internal Generation Flow
+# User Input
 
-Whenever a user presses Generate, the following process happens internally.
+Before generation begins, Aura AI collects the following information:
 
-User Request
+Required
+
+- Writing Mode
+- Topic
+- Connected Account
+- Number of Threads
+
+Optional
+
+- Language
+- Tone
+- Promotion Link
+- Link in Bio
+
+These inputs become the generation context used by HERO.
+
+---
+
+# Generation Pipeline
+
+Every time the user presses **Generate**, Aura AI follows a single generation pipeline.
+
+```
+Load Aura Brain
 
 ↓
 
-Load Aura Brain
+Read User Inputs
 
 ↓
 
@@ -183,47 +204,147 @@ Return Approved Output
 ↓
 
 Display Results
+```
 
-This entire workflow happens within a single AI generation pipeline.
-
-The user never sees the internal processing.
-
----
-
-# HERO Generation Flow
-
-HERO performs the following tasks:
-
-Receive user request
-
-↓
-
-Read Writing Mode
-
-↓
-
-Read Topic
-
-↓
-
-Read User Settings
-
-↓
-
-Generate thread using Aura Brain rules
-
-↓
-
-Pass output to AURA
-
-HERO never evaluates its own output.
+The user never sees this process.
 
 ---
 
-# AURA Validation Flow
+# HERO Generation Process
 
-AURA performs four internal stages.
+HERO follows four internal stages.
 
+```
+Understand
+
+↓
+
+Plan
+
+↓
+
+Structure
+
+↓
+
+Generate
+```
+
+---
+
+## Understand
+
+HERO identifies:
+
+- Writing Mode
+- User objective
+- Topic
+- Tone
+- Language
+- Promotion settings
+
+HERO determines the intended outcome before writing begins.
+
+---
+
+## Plan
+
+HERO decides the overall writing strategy.
+
+Examples include:
+
+- Thread direction
+- Psychological flow
+- Reading progression
+- Curiosity placement
+- Reveal timing
+- Outcome strategy
+
+Planning always happens before writing.
+
+---
+
+## Structure
+
+HERO determines the most appropriate thread structure.
+
+Possible outputs include:
+
+```
+H
+
+↓
+
+E
+
+↓
+
+R
+
+↓
+
+O
+```
+
+or
+
+```
+H
+
+↓
+
+E
+
+↓
+
+R1
+
+↓
+
+R2
+
+↓
+
+O
+```
+
+The structure depends entirely on the topic.
+
+Users never manually choose the structure.
+
+---
+
+## Generate
+
+Once planning is complete, HERO writes the thread.
+
+If multiple threads are requested, HERO generates different angles while maintaining the selected Writing Mode.
+
+Example:
+
+Thread 1
+
+Educational Angle
+
+Thread 2
+
+Contrarian Angle
+
+Thread 3
+
+Story Angle
+
+Every thread must pursue the same objective while providing different perspectives.
+
+---
+
+# AURA Validation Process
+
+After HERO finishes writing, AURA immediately begins validation.
+
+AURA follows four internal stages.
+
+```
 Analyze
 
 ↓
@@ -237,8 +358,7 @@ Review
 ↓
 
 Approve
-
-Each stage has a specific responsibility.
+```
 
 ---
 
@@ -246,106 +366,151 @@ Each stage has a specific responsibility.
 
 Analyze scans the generated thread.
 
-It checks:
+Checks include:
 
 - Writing Mode
-- HERO structure
 - Topic consistency
-- Content flow
-- Thread structure
+- HERO structure
+- Thread flow
 - Human readability
+- Overall coherence
 
-No content is modified during this stage.
+No modifications happen during this stage.
 
 ---
 
 ## Understand
 
-Understand identifies weak sections inside the generated thread.
+Understand identifies sections that fail Aura Brain standards.
 
-Examples include:
+Possible issues include:
 
 - Weak Hook
 - Weak Engage
 - Weak Reveal
 - Weak Outcome
 - Wrong writing mode behaviour
-- Wrong bait
 - Generic AI wording
+- Weak curiosity
+- Weak emotional progression
 
-If a section does not meet Aura Brain standards, only that specific section is regenerated.
+If necessary, AURA regenerates only the weak section.
 
-The entire thread is never regenerated unless explicitly requested by the user.
+The entire thread is never regenerated.
 
-Internal reasoning generated during this stage is never shown to users.
+Internal reasoning produced during this stage is never shown to users.
 
 ---
 
 ## Review
 
-Review evaluates the improved thread.
-
-It verifies that:
+Review verifies that:
 
 - HERO methodology is followed
 - Writing Mode objective is achieved
-- Thread quality meets Aura Brain standards
+- The thread meets Aura Brain standards
 
-Review generates an internal compliance score.
+An internal compliance score is generated.
 
-This score is used only for system validation.
+This score is used only by Aura AI.
 
 ---
 
 ## Approve
 
-Once validation is complete, AURA approves the final thread.
+Once validation is complete, AURA approves the thread.
 
-Only approved threads are returned to users.
+Only approved content is displayed to the user.
 
-Users never see rejected versions.
+Rejected versions are never exposed.
 
 ---
 
-# Writing Mode Validation
+# Promotion Behaviour
 
-AURA validates every thread according to the selected Writing Mode.
+Promotion is optional.
 
-Selling Mode
+If no Promotion Link is provided:
 
-Goal:
+HERO generates a normal thread without promotional content.
+
+---
+
+If a Promotion Link is provided:
+
+HERO naturally integrates promotion into the Outcome section.
+
+Promotion should always feel helpful, conversational, and value-driven.
+
+Direct selling is never allowed.
+
+---
+
+If **Link in Bio** is enabled:
+
+HERO naturally references the user's bio as part of the CTA.
+
+Example:
+
+"I left more details in my bio if you're curious."
+
+---
+
+If both **Promotion Link** and **Link in Bio** are provided:
+
+HERO combines both naturally.
+
+Example:
+
+"I explained everything in my bio, but if you want to skip straight to it, here's the link."
+
+The CTA should always prioritise curiosity before action.
+
+Readers should feel motivated to explore the solution themselves instead of feeling pressured to buy.
+
+---
+
+# Writing Mode Objectives
+
+Every generated thread must satisfy the selected Writing Mode.
+
+---
+
+## Selling Mode
+
+Goal
 
 Sell the solution.
 
 Never sell the product.
 
-Outcome:
+Outcome
 
-Readers should imagine a better outcome after using the solution.
+Readers should imagine a better life after using the solution.
 
 ---
 
-Informative Mode
+## Informative Mode
 
-Goal:
+Goal
 
 Help readers gain a new perspective.
 
-Outcome:
+Outcome
 
-Readers should feel smarter after reading and naturally continue the discussion.
+Readers should feel smarter after reading while naturally continuing the discussion.
 
 ---
 
-Engagement Mode
+## Engagement Mode
 
-Goal:
+Goal
 
-Create opinions and conversations.
+Create opinions.
 
-Outcome:
+Outcome
 
-Readers should feel encouraged to leave comments and participate.
+Readers should feel encouraged to leave comments and participate in the conversation.
 
 ---
 
@@ -353,24 +518,27 @@ Readers should feel encouraged to leave comments and participate.
 
 After approval, every generated thread receives an overall Aura Score.
 
-The score is shown to users only as a prioritisation indicator.
+The score exists for one purpose:
 
-Purpose:
+Help users decide which generated thread should be prioritised for publishing.
 
-Help users identify which generated thread should be prioritised for publishing.
+Aura Score does not predict virality.
 
-Aura Score does NOT predict virality.
-
-Aura Score only measures compliance with Aura Brain standards.
+Aura Score measures compliance with Aura Brain standards.
 
 ---
 
 # User Editing
 
-Once the approved thread reaches the user, Aura AI's responsibility is complete.
+Once approved content reaches the user:
 
-If the user edits the content:
+HERO's responsibility ends.
 
+AURA's responsibility ends.
+
+If the user edits the thread:
+
+```
 Approved Thread
 
 ↓
@@ -380,12 +548,11 @@ User Edit
 ↓
 
 Draft Mode
+```
 
-From this point onward:
+From this point onward, the content belongs entirely to the user.
 
-- HERO no longer modifies the content.
-- AURA no longer validates the content.
-- The edited version belongs entirely to the user.
+Aura AI no longer validates or modifies the edited version.
 
 ---
 
@@ -415,7 +582,7 @@ Post Now
 
 Save Draft stores the content without publishing.
 
-Schedule Draft opens the scheduling interface where users choose a future date and time.
+Schedule Draft opens the scheduling interface where users select a future date and time.
 
 Post Now immediately publishes the approved content.
 
@@ -425,17 +592,18 @@ Post Now immediately publishes the approved content.
 
 Aura AI is responsible for:
 
-- Generating content
-- Validating quality
-- Improving weak sections
-- Delivering approved output
+- Planning
+- Generating
+- Validating
+- Improving
+- Delivering approved content
 
 Aura AI is NOT responsible for:
 
 - Predicting virality
-- Forcing users to follow recommendations
 - Editing user-modified drafts
 - Making publishing decisions
+- Forcing users to follow AI recommendations
 
 The creator always has the final decision.
 
@@ -443,14 +611,14 @@ The creator always has the final decision.
 
 # Architecture Principle
 
-Aura AI is intentionally designed to hide internal complexity.
+Aura AI is intentionally built using multiple internal AI components while exposing only one experience to users.
 
-Users interact with one product.
+Users never interact with:
 
-Internally, multiple AI engines work together to deliver the final experience.
+- Aura Brain
+- HERO Engine
+- AURA Engine
 
-The user should never need to know that HERO and AURA exist.
+Users interact only with Aura AI.
 
-To the user, there is only one assistant:
-
-Aura AI.
+Everything else happens behind the scenes.
