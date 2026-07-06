@@ -1,6 +1,6 @@
 # System Brain
 
-Version: 2.0
+Version: 1.0
 Status: Locked
 Last Updated: 2026-07-06
 
