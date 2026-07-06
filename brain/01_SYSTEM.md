@@ -1,48 +1,48 @@
 # System Brain
 
-Version: 1.0
+Version: 2.0
 Status: Locked
 Last Updated: 2026-07-06
 
 ---
 
-# Purpose
+# Identity
 
-System Brain is Aura AI's central decision engine.
+System Brain is Aura AI's operating system.
 
-Its responsibility is to understand every creator request, determine the correct execution path, coordinate specialised brains, and return a validated response.
+It coordinates every request throughout Aura AI.
 
 System Brain never generates content.
 
 System Brain never analyses performance.
 
-System Brain never discovers opportunities.
+System Brain never validates outputs.
 
-System Brain only thinks, decides, coordinates, and executes.
+Its only responsibility is coordinating execution.
 
 ---
 
-# Responsibilities
+# Responsibility
 
 System Brain is responsible for:
 
 - Receiving every creator request.
-- Identifying user intent.
-- Determining the requested feature.
-- Loading the Active Account.
-- Loading relevant knowledge.
-- Selecting specialised brains.
-- Coordinating execution order.
-- Passing output to AURA.
-- Returning approved results.
+- Identifying creator intent.
+- Selecting the requested feature.
+- Classifying the request.
+- Building the Execution Context.
+- Selecting the Primary Brain.
+- Coordinating execution.
+- Routing outputs to AURA when validation is required.
+- Returning the final response.
 
-System Brain should never perform responsibilities belonging to another specialised brain.
+System Brain should never perform responsibilities belonging to specialised brains.
 
 ---
 
 # Core Principle
 
-Every request follows the same philosophy.
+Every request follows the same operating principle.
 
 ```
 Receive
@@ -53,11 +53,7 @@ Understand
 
 ↓
 
-Decide
-
-↓
-
-Load
+Prepare
 
 ↓
 
@@ -72,13 +68,17 @@ Validate
 Return
 ```
 
-No request should skip this process.
+Preparation always happens before execution.
+
+Execution always happens before validation.
+
+Validation always happens before returning a response.
 
 ---
 
-# Decision Pipeline
+# Thinking Pipeline
 
-Every creator request enters the same decision pipeline.
+Every creator request enters the same thinking pipeline.
 
 ```
 Creator Request
@@ -93,67 +93,70 @@ Identify Feature
 
 ↓
 
+Classify Request
+
+↓
+
 Load Active Account
 
 ↓
 
-Load Required Knowledge
+Build Execution Context
 
 ↓
 
-Select Brain
+Aura Brain
+
+↓
+
+Knowledge Context
+
+↓
+
+Select Primary Brain
 
 ↓
 
 Execute
-
-↓
-
-AURA Validation
-
-↓
-
-Return Result
 ```
 
-This pipeline applies to every AI-powered feature.
-
-Only the selected specialised brain changes.
+Only after execution has completed does the request continue to validation.
 
 ---
 
 # Intent Detection
 
-The first responsibility is determining what the creator wants.
+The first decision is identifying the creator's intent.
 
-Possible intents include:
+Examples include:
 
 - Write Content
 - Scout Conversations
 - Analyse Performance
-- View Dashboard
-- Manage Planner
+- Open Home
+- Open Planner
+- View Stats
 - Update Profile
 
-Intent should always be identified before any reasoning begins.
+Unknown intent should never proceed beyond this stage.
 
-Unknown requests should never proceed to execution.
+Unknown requests should return a clarification request rather than continuing execution.
 
 ---
 
 # Feature Selection
 
-Once intent is identified,
+After identifying intent,
 
-System Brain selects the appropriate feature.
+System Brain selects the corresponding application feature.
 
-Examples:
+Examples include:
 
 Write
 
 ↓
 
-HERO
+Write Feature
 
 ---
 
@@ -161,7 +164,7 @@ Scout
 
 ↓
 
-Scout Brain
+Scout Feature
 
 ---
 
@@ -169,7 +172,7 @@ Stats
 
 ↓
 
-Stats Brain
+Stats Feature
 
 ---
 
@@ -177,7 +180,7 @@ Planner
 
 ↓
 
-Planner Brain
+Planner Feature
 
 ---
 
@@ -185,17 +188,66 @@ Profile
 
 ↓
 
-Profile System
+Profile Feature
 
-Only one primary specialised brain should execute a request unless collaboration is explicitly required.
+Feature selection should remain independent from specialised brain selection.
+
+Creators request features.
+
+System Brain decides which brain executes them.
 
 
+---
+
+# Request Classification
+
+After selecting the requested feature,
+
+System Brain classifies the request.
+
+Two request types exist.
+
+---
+
+## AI Request
+
+AI Requests require reasoning.
+
+Examples include:
+
+- Generate Threads
+- Discover Scout Opportunities
+- Generate Scout Replies
+- Analyse Performance
+
+AI Requests continue through the complete AI execution pipeline.
+
+---
+
+## System Request
+
+System Requests require application logic only.
+
+Examples include:
+
+- Open Home
+- Open Planner
+- Retrieve Calendar
+- Load Dashboard
+- Retrieve Profile
+- Update Settings
+
+System Requests bypass specialised reasoning completely.
+
+Only the required application data should be retrieved.
+
+The objective is minimising unnecessary AI execution.
 
 ---
 
 # Active Account Loading
 
-Every request must begin by loading the Active Account.
+Every request begins by loading the Active Account.
 
 ```
 INPUT
@@ -208,7 +260,7 @@ Creator Request
 
 PROCESS
 
-Retrieve Active Account
+Load Active Account
 
 ↓
 
@@ -217,87 +269,69 @@ OUTPUT
 Active Account Context
 ```
 
-The Active Account Context should include:
+The Active Account Context should contain:
 
 - Account Identity
 - Account Type
-- Historical Behaviour
-- Historical Performance
 - Connected Platform
-- Current AI Context
+- Creator Preferences
+- Account History
 
-No AI reasoning should begin before the Active Account Context is successfully loaded.
+No execution should begin before the Active Account Context has been successfully prepared.
+
+---
+
+# Execution Context
+
+System Brain builds one Execution Context for every request.
+
+Execution Context represents everything required for execution.
+
+```
+Execution Context
+
+├── Request Context
+├── Active Account Context
+├── Feature Context
+└── Creator Preferences
+```
+
+Execution Context becomes the primary input for Aura Brain.
+
+No specialised brain should build its own execution context.
 
 ---
 
 # Knowledge Loading
 
-Knowledge should never be loaded all at once.
+System Brain never decides which knowledge documents should be used.
 
-System Brain loads only the knowledge required for the current request.
+That responsibility belongs entirely to Aura Brain.
 
 ```
-INPUT
+Execution Context
 
 ↓
 
-Feature Request
+Aura Brain
 
 ↓
 
-PROCESS
-
-Select Required Knowledge
+Knowledge Selection
 
 ↓
-
-OUTPUT
 
 Knowledge Context
 ```
 
-Example:
+Knowledge selection should be determined dynamically using:
 
-Write
+- Selected Feature
+- Active Platform
+- Active Account
+- Creator Preferences
 
-↓
-
-Load
-
-- Human Writing
-- Reader Psychology
-- CTA Psychology
-- Copywriting
-- Threads Best Practices
-- Blacklist
-- AI Personality
-
----
-
-Scout
-
-↓
-
-Load
-
-- Threads Best Practices
-- Platform Behaviour
-- Blacklist
-- AI Personality
-
----
-
-Stats
-
-↓
-
-Load
-
-- Threads Best Practices
-- Platform Behaviour
-- AI Personality
-
-Knowledge loading should remain dynamic.
+Only the knowledge required for the current request should be loaded.
 
 Unused knowledge should never participate in reasoning.
 
@@ -305,148 +339,86 @@ Unused knowledge should never participate in reasoning.
 
 # Brain Selection
 
-After loading the required context,
+Once the Knowledge Context has been prepared,
 
-System Brain selects the appropriate specialised brain.
-
-```
-Write
-
-↓
-
-HERO Brain
-```
-
-```
-Scout
-
-↓
-
-Scout Brain
-```
-
-```
-Stats
-
-↓
-
-Stats Brain
-```
-
-```
-Planner
-
-↓
-
-Planner Brain
-```
-
-Only one brain should become the Primary Brain for each request.
-
-Additional brains may participate only when collaboration is required.
-
----
-
-# Multi-Brain Collaboration
-
-Certain requests require more than one specialised brain.
-
-Example:
-
-```
-Write Request
-
-↓
-
-HERO Brain
-
-↓
-
-AURA Validation
-```
-
----
-
-```
-Scout Request
-
-↓
-
-Scout Brain
-
-↓
-
-AURA Validation
-```
-
----
-
-```
-Stats Request
-
-↓
-
-Stats Brain
-```
-
-Collaboration should remain minimal.
-
-Each specialised brain should perform only its own responsibility.
-
-System Brain remains responsible for coordination.
-
----
-
-# Execution Context
-
-Before execution begins,
-
-System Brain combines every required resource into one Execution Context.
-
-Execution Context includes:
-
-- Active Account Context
-- Request Context
-- Knowledge Context
-- Selected Brain
-- Feature Settings
-
-The Execution Context becomes the only input passed to the selected specialised brain.
-
-No specialised brain should independently load additional resources.
-
----
-
-# Request Preparation
-
-Every request should be fully prepared before execution.
-
-Preparation includes:
-
-- Validating required inputs.
-- Resolving missing optional settings.
-- Applying saved creator preferences.
-- Loading remembered defaults.
-- Building the Execution Context.
-
-Once preparation is complete,
-
-System Brain transfers full responsibility to the selected specialised brain.
-
-System Brain does not interfere again until execution has finished.
-
-
-
----
-
-# Execution Flow
-
-Once the Execution Context has been prepared,
-
-System Brain transfers the request to the selected specialised brain.
+System Brain selects the Primary Brain.
 
 ```
 Execution Context
+
++
+
+Knowledge Context
+
+↓
+
+Select Primary Brain
+
+↓
+
+Execute
+```
+
+Only one Primary Brain may own a request.
+
+Supporting brains may participate only when required.
+
+System Brain always remains responsible for coordination.
+
+---
+
+# Collaboration Rules
+
+Collaboration should remain minimal.
+
+Each specialised brain performs only one responsibility.
+
+Examples include:
+
+```
+HERO
+
+↓
+
+AURA
+```
+
+```
+Scout Brain
+
+↓
+
+AURA
+```
+
+```
+Stats Brain
+
+↓
+
+Return
+```
+
+System Brain coordinates every collaboration.
+
+No specialised brain should directly invoke another specialised brain.
+
+
+
+---
+
+# Execution Rules
+
+Once the Primary Brain has been selected,
+
+System Brain transfers ownership of the request.
+
+```
+Execution Context
+
+↓
+
+Knowledge Context
 
 ↓
 
@@ -455,112 +427,28 @@ Primary Brain
 ↓
 
 Execution Result
-
-↓
-
-AURA
-
-↓
-
-Approved Result
-
-↓
-
-Creator
 ```
 
-System Brain does not participate during reasoning.
+During execution,
 
-It waits until execution has completed.
+System Brain does not participate in reasoning.
 
----
-
-# Response Pipeline
-
-Every AI-generated response follows the same pipeline.
-
-```
-Creator Request
-
-↓
-
-System Brain
-
-↓
-
-Primary Brain
-
-↓
-
-AURA Validation
-
-↓
-
-Creator Response
-```
-
-No AI-generated output should bypass AURA.
-
-Validation is mandatory whenever content or replies are generated.
-
----
-
-# Failure Handling
-
-If execution cannot continue,
-
-System Brain should stop immediately.
-
-Possible failure conditions include:
-
-- No Active Account.
-- Missing required input.
-- Unsupported feature.
-- Required knowledge unavailable.
-- Primary Brain unavailable.
-
-System Brain should never continue with incomplete execution context.
-
----
-
-# Retry Logic
-
-Retry should occur only when the failure is recoverable.
-
-Examples include:
-
-- Temporary generation failure.
-- Validation failure.
-- Response formatting issue.
-
-Retry should never occur when required information is missing.
-
-Example:
-
-Missing Topic
-
-↓
-
-Stop
-
-↓
-
-Request creator input
-
-Not Retry.
+Its responsibility is waiting for the execution result.
 
 ---
 
 # Validation Routing
 
-Every completed execution must determine whether validation is required.
+After execution,
+
+System Brain determines whether validation is required.
 
 ```
-Execution Complete
+Execution Result
 
 ↓
 
-Requires Validation?
+Validation Required?
 
 ↓
 
@@ -572,15 +460,15 @@ AURA
 
 ↓
 
-Creator
+Approved Result
 ```
 
 ```
-Execution Complete
+Execution Result
 
 ↓
 
-Requires Validation?
+Validation Required?
 
 ↓
 
@@ -588,165 +476,163 @@ No
 
 ↓
 
-Creator
+Approved Result
 ```
 
-Examples requiring validation:
+Validation should only occur when AI-generated content requires quality review.
 
-- Thread generation.
-- Reply generation.
+Examples include:
 
-Examples not requiring validation:
+- Thread Generation
+- Scout Reply Generation
 
-- Calendar retrieval.
-- Profile settings.
-- Dashboard data.
-- Statistics retrieval.
+Examples that do not require validation include:
+
+- Dashboard Retrieval
+- Calendar Retrieval
+- Profile Retrieval
+- Settings Update
+
+---
+
+# Response Pipeline
+
+Every request follows the same response pipeline.
+
+```
+Creator Request
+
+↓
+
+System Brain
+
+↓
+
+Aura Brain
+
+↓
+
+Primary Brain
+
+↓
+
+AURA (If Required)
+
+↓
+
+Creator Response
+```
+
+Every creator response should originate from one completed execution.
+
+Partial responses should never be returned.
+
+---
+
+# Failure Handling
+
+Execution should stop immediately whenever a critical dependency is unavailable.
+
+Examples include:
+
+- Active Account unavailable.
+- Execution Context incomplete.
+- Primary Brain unavailable.
+- Invalid creator request.
+
+When execution stops,
+
+System Brain should return a recoverable response whenever possible.
+
+The creator should receive guidance instead of an unexpected failure.
+
+---
+
+# Retry Rules
+
+Retry should occur only when the failure is temporary.
+
+Examples include:
+
+- Temporary generation failure.
+- Temporary validation failure.
+- Temporary formatting issue.
+
+Retry should never occur when creator input is missing.
+
+Example:
+
+```
+Topic Missing
+
+↓
+
+Stop Execution
+
+↓
+
+Request Creator Input
+```
+
+Retries should remain limited.
+
+Repeated failures should be returned to the creator with an appropriate explanation.
 
 ---
 
 # Output Rules
 
-System Brain returns only one final response.
+System Brain returns only one creator-ready response.
 
-Creators should never receive:
+The creator should never receive:
 
 - Internal reasoning.
-- Knowledge loading.
-- Decision process.
-- Intermediate outputs.
-- Multiple unfinished results.
-
-Only validated, creator-ready output should leave System Brain.
-
-Internal execution remains invisible.
-
-
-
----
-
-# Request Classification
-
-Before execution begins,
-
-System Brain classifies every incoming request.
-
-Two request types exist.
-
----
-
-## AI Request
-
-Requests requiring reasoning.
-
-Examples include:
-
-- Generate Threads.
-- Discover Scout opportunities.
-- Generate Scout replies.
-- Analyse performance.
-
-AI Requests require:
-
-- Active Account Context.
+- Execution Context.
 - Knowledge Context.
-- Specialised Brain.
-- AURA Validation (when applicable).
+- Brain selection.
+- Validation process.
+- Intermediate outputs.
 
----
+Every response leaving System Brain should be complete, validated when required, and ready for immediate use.
 
-## System Request
 
-Requests requiring system operations only.
-
-Examples include:
-
-- Open Planner.
-- Retrieve Calendar.
-- Load Dashboard.
-- Retrieve Profile.
-- Update Settings.
-
-System Requests bypass AI reasoning completely.
-
-Only the required application data should be retrieved.
-
-The objective is minimising unnecessary AI execution while improving performance.
-
----
-
-# Priority Rules
-
-System Brain resolves every request using the following priority.
-
-```
-Receive Request
-
-↓
-
-Classify Request
-
-↓
-
-Load Active Account
-
-↓
-
-Load Required Knowledge
-
-↓
-
-Select Brain
-
-↓
-
-Execute
-
-↓
-
-Validate (If Required)
-
-↓
-
-Return
-```
-
-No stage should be skipped.
-
-No specialised brain should execute before the request has been fully prepared.
 
 ---
 
 # Conflict Resolution
 
-If multiple specialised brains could potentially execute a request,
+Only one Primary Brain may own a request.
+
+If multiple specialised brains could potentially execute the same request,
 
 System Brain should:
 
 - Select one Primary Brain.
 - Assign supporting brains only when required.
-- Prevent duplicate responsibilities.
+- Prevent overlapping responsibilities.
 
-Every request should have only one decision owner.
+Every request should have one decision owner.
 
-Responsibilities should never overlap.
+Execution ownership should never be shared.
 
 ---
 
 # Memory Handling
 
-System Brain does not permanently remember creator interactions.
+System Brain does not permanently store creator memory.
 
 Persistent information belongs to:
 
-- Active Account Context.
-- Historical Performance.
-- Application Database.
-- Creator Preferences.
+- Active Account
+- Account History
+- Creator Preferences
+- Application Database
 
-System Brain retrieves memory when needed.
+System Brain retrieves only the information required for the current execution.
 
-It never stores memory independently.
+Memory retrieval should always remain contextual.
+
+No specialised brain should independently manage persistent memory.
 
 ---
 
@@ -754,7 +640,7 @@ It never stores memory independently.
 
 System Brain should remain platform-independent.
 
-Adding new platforms or specialised brains should not require redesigning the decision pipeline.
+Adding new platforms, features, or specialised brains should never require redesigning the operating system.
 
 Future expansion should involve:
 
@@ -762,7 +648,7 @@ Future expansion should involve:
 - Registering a new specialised brain.
 - Registering new platform knowledge.
 
-The core execution pipeline should remain unchanged.
+The execution pipeline should remain unchanged.
 
 ---
 
@@ -776,11 +662,17 @@ It does not analyse.
 
 It does not validate.
 
-Its responsibility is making sure the right brain receives the right context at the right time.
+Its responsibility is ensuring that every request reaches the correct specialised brain with the correct execution context.
+
+System Brain prepares.
+
+Aura Brain provides knowledge.
+
+Specialised Brains reason.
+
+AURA validates.
 
 Every request should follow the same philosophy.
-
-Think first.
 
 Prepare completely.
 
@@ -792,18 +684,18 @@ Return confidently.
 
 # Final Statement
 
-System Brain exists to make every specialised brain simpler.
+System Brain exists to simplify every other specialised brain.
 
-Rather than allowing each brain to manage accounts, knowledge, routing, and execution independently,
+Rather than allowing each brain to independently manage routing, context, execution, and memory,
 
 System Brain centralises those responsibilities into one consistent workflow.
 
-This separation allows every specialised brain to focus on only one responsibility.
+Each specialised brain should focus on only one responsibility.
 
-As Aura AI grows,
+As Aura AI evolves,
 
-System Brain remains stable.
-
-New capabilities should be added by extending specialised brains and knowledge,
+new capabilities should be added by extending specialised brains and knowledge,
 
 not by increasing the complexity of the operating system.
+
+A stable operating system allows Aura AI to grow without becoming more complicated.
