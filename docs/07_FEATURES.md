@@ -1,8 +1,8 @@
 # Features
 
-Version: 1.0
+Version: 1.1
 Status: Locked
-Last Updated: 2026-07-05
+Last Updated: 2026-07-06
 
 ---
 
@@ -10,13 +10,17 @@ Last Updated: 2026-07-05
 
 This document defines every core feature available in Aura AI Version 1.
 
-Each feature exists to solve a specific creator problem while maintaining Aura AI's philosophy:
+Each feature exists to solve a specific creator problem while supporting Aura AI's core philosophy:
 
-Reduce complexity.
-Reduce decision fatigue.
-Increase consistency.
+- Reduce complexity.
+- Reduce decision fatigue.
+- Increase consistency.
 
-Every feature should feel simple to use while hiding complex AI processes behind the scenes.
+Every feature should remain simple to use while hiding AI complexity behind the scenes.
+
+Users interact with Aura AI.
+
+They never interact directly with the internal AI components.
 
 ---
 
@@ -31,19 +35,23 @@ Aura AI Version 1 consists of six primary modules.
 - Stats
 - Profile
 
+Each module has one clearly defined responsibility.
+
+No feature should attempt to perform another feature's responsibility.
+
 ---
 
 # Active Account
 
-Aura AI operates using one Active Account at a time.
+Aura AI always operates using one Active Account.
 
 Version 1 supports:
 
 - Multiple Threads accounts
 
-Only one Threads account may be active at any given time.
+Only one Threads account may remain active at any given time.
 
-Switching the Active Account updates every feature automatically.
+Switching the Active Account automatically updates every AI-powered feature throughout the application.
 
 Affected modules include:
 
@@ -53,7 +61,28 @@ Affected modules include:
 - Planner
 - Stats
 
-Users never need to choose the account repeatedly throughout the app.
+Users should never need to manually select their account while using individual features.
+
+---
+
+# AI Context
+
+Every Active Account maintains its own independent AI context.
+
+This includes:
+
+- Writing behaviour.
+- Scout behaviour.
+- Historical performance.
+- Draft history.
+- Scheduled content.
+- AI learning.
+
+Switching the Active Account immediately replaces the entire AI context.
+
+No behaviour, recommendations, or learning should ever be shared between different accounts.
+
+Each account should gradually develop its own independent identity over time.
 
 ---
 
@@ -63,9 +92,19 @@ Users never need to choose the account repeatedly throughout the app.
 
 Home serves as the creator dashboard.
 
-Rather than displaying excessive analytics, Home immediately answers one question:
+Rather than displaying excessive analytics,
+
+Home answers one simple question:
 
 "What should I do today?"
+
+Home is not an AI feature.
+
+Its responsibility is presenting the most relevant information from across Aura AI in one place.
+
+Any AI-generated recommendations displayed on Home originate from other specialised brains, such as Stats Brain.
+
+Home itself performs no AI reasoning.
 
 ---
 
@@ -73,12 +112,12 @@ Rather than displaying excessive analytics, Home immediately answers one questio
 
 ### Today's Mission
 
-Displays the user's daily activity targets.
+Displays the creator's daily activity targets.
 
 Example:
 
-- Reply 5 posts
-- Create 3 posts
+- Reply to 5 posts.
+- Create 3 posts.
 
 Mission progress updates automatically.
 
@@ -88,13 +127,13 @@ Completed missions are checked automatically.
 
 ### Weekly Streak
 
-Displays the user's current posting consistency.
+Displays the creator's posting consistency.
 
 Example:
 
 🔥 6 Week Streak
 
-Weekly Streak motivates creators to remain consistent without creating unnecessary pressure.
+Weekly Streak encourages long-term consistency without creating unnecessary pressure.
 
 Missing one day should not automatically reset the streak.
 
@@ -102,7 +141,7 @@ Missing one day should not automatically reset the streak.
 
 ### Yesterday's Performance
 
-Displays yesterday's performance comparison.
+Displays yesterday's performance compared with the previous day.
 
 Metrics include:
 
@@ -111,29 +150,29 @@ Metrics include:
 - Clicks
 - Current Draft Count
 
-Only daily change is displayed.
+Only daily changes are displayed.
 
-The objective is helping creators notice progress rather than focusing on lifetime numbers.
+The objective is helping creators recognise progress rather than focusing on lifetime numbers.
 
 ---
 
 ### Top Performing Posts
 
-Displays three permanent cards.
+Displays three permanent performance cards.
 
 Top Views
 
-Highest viewed post.
+The post with the highest number of views.
 
 Purpose:
 
-Understand what the algorithm prefers.
+Understand what attracts the most visibility.
 
 ---
 
 Top Engagement
 
-Highest engagement post.
+The post with the highest engagement.
 
 Purpose:
 
@@ -143,17 +182,38 @@ Understand what audiences interact with most.
 
 Most Clicks
 
-Highest direct product link clicks.
+The post generating the highest number of product link clicks.
 
 Purpose:
 
-Understand which content converts best.
+Understand which content drives the strongest conversions.
 
-Whenever a new record replaces an existing Top Post, display:
+Whenever a new record replaces an existing top-performing post,
+
+display:
 
 NEW
 
-to attract user attention.
+to immediately attract the creator's attention.
+
+---
+
+## Behaviour Rules
+
+Home should remain simple.
+
+Home should never become an analytics dashboard.
+
+Home should never overwhelm creators with excessive information.
+
+Every component should help creators quickly understand:
+
+- What happened yesterday.
+- What needs attention today.
+- Which content performs best.
+
+The primary objective of Home is action rather than analysis.
+
 
 ---
 
@@ -161,97 +221,162 @@ to attract user attention.
 
 ## Purpose
 
-Scout automatically discovers conversations worth joining.
+Scout automatically discovers valuable conversations worth joining.
 
-The objective is increasing account activity through valuable engagement.
+Its objective is helping creators build genuine relationships through meaningful engagement rather than chasing viral posts.
 
-Scout focuses on helping users build relationships rather than chasing viral posts.
+Scout is powered by Scout Brain.
+
+Scout Brain discovers relevant opportunities, generates natural replies, and submits every reply to AURA for quality review before presenting it to the creator.
+
+Users should spend less time searching for conversations and more time participating in them.
+
+---
+
+## AI Responsibility
+
+Scout Brain is responsible for:
+
+- Discovering relevant conversations.
+- Understanding discussion context.
+- Selecting valuable engagement opportunities.
+- Generating natural replies.
+- Matching replies to the Active Account.
+
+AURA is responsible for:
+
+- Reviewing generated replies.
+- Improving weak wording if necessary.
+- Ensuring replies feel natural.
+- Approving replies before presentation.
+
+Creators never receive unreviewed AI replies.
 
 ---
 
 ## Scout Feed
 
-Scout displays three opportunities simultaneously.
+Scout displays three engagement opportunities simultaneously.
 
-Recommended structure:
+Each opportunity includes:
 
-Post 1
+- Original post.
+- AI-generated suggested reply.
+- Available actions.
 
-Relevant niche + high engagement
+The objective is helping creators engage immediately without needing to think about what to write.
 
-Post 2
-
-Relevant niche + high engagement
-
-Post 3
-
-Trending or viral discussion
-
-Users may refresh individual opportunities at any time.
+Every suggested reply has already passed through AURA's review process.
 
 ---
 
-## AI Generated Reply
+## AI Workflow
 
-Each discovered post automatically includes an AI-generated reply.
+Every Scout request follows the same execution flow.
 
-Reply Rules:
+```
+Refresh Scout
 
-- One paragraph only
-- 2–3 sentences
-- Natural human writing
-- No AI sounding language
-- No hashtags
-- No emoji spam
-- No CTA
+↓
 
-Replies should contribute value to the conversation.
+System Brain
 
-Replies may:
+↓
 
-- Add perspective
-- Share experience
-- Expand ideas
-- Respectfully disagree
-- Continue discussion
+Load Active Account
 
-Replies should never feel promotional.
+↓
+
+Load Relevant Knowledge
+
+↓
+
+Scout Brain
+
+↓
+
+Discover Opportunity
+
+↓
+
+Generate Reply
+
+↓
+
+AURA Review
+
+↓
+
+Suggested Reply
+
+↓
+
+User
+```
+
+The creator interacts only with the final suggested reply.
+
+Scout Brain and AURA remain completely invisible.
 
 ---
 
 ## Actions
 
-Each Scout card includes:
-
-Approve
-
-Immediately:
-
-- Publish reply
-- Like post
-- Repost post
+Each Scout card includes four actions.
 
 ---
+
+### Approve
+
+Immediately performs:
+
+- Publish reply.
+- Like original post.
+- Repost original post.
+
+The creator completes meaningful engagement with one action.
+
+---
+
+### Regenerate
+
+Generate another reply for the current post.
+
+Workflow:
+
+```
+Suggested Reply
+
+↓
 
 Regenerate
 
-Generate a different reply.
+↓
 
----
+Scout Brain
 
-Refresh
+↓
 
-Replace only that Scout card with a new opportunity.
+Generate New Reply
 
----
+↓
 
-Bookmark
+AURA Review
 
-Save the original post for future reference.
+↓
 
-Only the original post is bookmarked.
+Suggested Reply
 
-Generated replies are never bookmarked.
+↓
+
+User
+```
+
+The original post remains unchanged.
+
+Only the suggested
+
+
 
 ---
 
@@ -259,52 +384,98 @@ Generated replies are never bookmarked.
 
 ## Purpose
 
-Write is Aura AI's primary content generation feature.
+Write is Aura AI's primary AI content generation feature.
 
-Users provide simple inputs.
+Creators provide simple inputs.
+
+System Brain prepares the request.
 
 HERO generates.
 
 AURA validates.
 
-Approved content is returned.
+The creator receives only approved content.
+
+The objective is helping creators create high-quality social media content with minimal configuration.
+
+---
+
+## AI Responsibility
+
+System Brain is responsible for:
+
+- Understanding the request.
+- Loading the Active Account.
+- Loading relevant knowledge.
+- Preparing the generation context.
+
+HERO Brain is responsible for:
+
+- Planning content strategy.
+- Structuring the thread.
+- Generating human-like writing.
+- Following the selected Writing Mode.
+
+AURA is responsible for:
+
+- Reviewing generated content.
+- Improving weak sections when necessary.
+- Validating quality.
+- Assigning Aura Score.
+- Approving the final result.
 
 ---
 
 ## Input Form
 
-Writing Mode
+### Writing Mode
+
+Available options:
 
 - Selling
 - Informative
 - Engagement
 
+Writing Mode represents the creator's objective.
+
+Aura AI always prioritises Writing Mode above all writing strategies.
+
 ---
 
-Topic
+### Topic
 
 Free text.
 
-Placeholder suggestions disappear when users begin typing.
+Placeholder suggestions disappear when the creator begins typing.
+
+The topic provides the primary direction for HERO.
 
 ---
 
-How Many Threads
+### How Many Threads
 
-Options:
+Available options:
 
 - 1
 - 3
 - 5
 - 10
 
+Every generated thread should provide a genuinely different strategic approach.
+
 ---
 
-Advanced Settings
+## Advanced Settings
 
-Language
+Advanced Settings remain collapsed by default.
 
-Automatically remembers frequently used languages.
+Only creators requiring additional control should expand them.
+
+---
+
+### Language
+
+Aura AI remembers the creator's preferred language.
 
 Default:
 
@@ -312,9 +483,9 @@ English
 
 ---
 
-Tone
+### Tone
 
-Options:
+Available options:
 
 - Casual
 - Professional
@@ -325,42 +496,49 @@ Casual
 
 ---
 
-Product Link (Optional)
+### Product Link
 
-Users may insert a direct promotion link.
+Optional.
+
+When provided,
+
+HERO naturally positions the product as the solution within Selling Mode.
 
 ---
 
-Link in Bio
+### Link in Bio
 
 Optional toggle.
 
-When enabled, HERO naturally references the creator's bio rather than aggressively promoting products.
+When enabled,
 
-If both Link in Bio and Product Link are enabled:
+HERO naturally references the creator's bio instead of aggressively promoting products.
 
-HERO blends both naturally.
+If both Product Link and Link in Bio are enabled,
 
-CTA should always remain curiosity-driven.
+HERO blends both naturally while maintaining a curiosity-driven CTA.
 
 ---
 
 ## Smart Defaults
 
-Aura AI remembers previous generation preferences.
+Aura AI automatically remembers frequently used preferences.
 
-Examples:
+Examples include:
 
-- Writing Mode
-- Language
-- Tone
+- Writing Mode.
+- Language.
+- Tone.
 
-Returning users should rarely need to configure settings again.
+Returning creators should rarely need to reconfigure the same settings.
 
 ---
 
-## Generation Flow
+## AI Workflow
 
+Every generation follows the same execution flow.
+
+```
 Fill Form
 
 ↓
@@ -369,57 +547,105 @@ Generate
 
 ↓
 
-HERO
+System Brain
 
 ↓
 
-AURA
+Load Active Account
+
+↓
+
+Load Relevant Knowledge
+
+↓
+
+HERO Brain
+
+↓
+
+AURA Validation
 
 ↓
 
 Approved Content
 
+↓
+
+User
+```
+
+The creator interacts only with the final approved content.
+
+All AI reasoning remains invisible.
+
 ---
 
 ## Generated Threads
 
-Each generated thread includes:
-
-Edit
-
-Allows users to edit any post.
-
-Once edited, the thread enters Draft Mode.
-
-AURA no longer validates manually edited drafts.
+Each approved thread includes the following actions.
 
 ---
 
-Post Now
+### Edit
 
-Immediately publishes the thread.
+Allows creators to manually modify any post.
+
+Once edited,
+
+the thread enters Draft Mode.
+
+Aura AI no longer validates manually edited drafts.
 
 ---
 
-Save Draft
+### Post Now
 
-Stores the thread inside Planner.
+Immediately publishes the approved thread.
 
 ---
 
-Schedule Post
+### Save Draft
+
+Stores the approved thread inside Planner.
+
+Saved drafts never publish automatically.
+
+---
+
+### Schedule Post
 
 Opens:
 
-Calendar
+- Calendar
+- Time Picker
 
-+
+After confirmation,
 
-Time Picker
+Planner manages automatic publishing at the selected date and time.
 
-After confirmation:
+---
 
-Aura AI publishes automatically at the scheduled time.
+## Behaviour Rules
+
+Write should minimise creator decisions.
+
+Aura AI automatically determines:
+
+- Hook strategy.
+- Thread structure.
+- Reveal progression.
+- CTA placement.
+- Psychological flow.
+
+Creators decide only:
+
+- Topic.
+- Writing Mode.
+- Publish method.
+
+Anything Aura AI can confidently determine should never become another user setting.
+
+
 
 ---
 
@@ -429,11 +655,17 @@ Aura AI publishes automatically at the scheduled time.
 
 Planner functions as Aura AI's Content Calendar.
 
-It helps creators organise future publishing while maintaining consistency.
+Its responsibility is helping creators organise future publishing while maintaining consistency.
+
+Planner focuses on visibility rather than decision making.
+
+Creators remain fully responsible for planning their own publishing schedule.
 
 ---
 
-## Calendar Views
+## Components
+
+### Calendar Views
 
 Available views:
 
@@ -443,7 +675,7 @@ Available views:
 
 ---
 
-## Calendar Indicators
+### Calendar Indicators
 
 Each date displays activity using coloured indicators.
 
@@ -457,33 +689,30 @@ Legend:
 
 ⚪ No Activity
 
-Indicators provide a quick overview without cluttering the calendar.
+Indicators provide an immediate overview without requiring creators to open individual dates.
 
 ---
 
-## Date View
+### Date View
 
-Selecting a date opens:
+Selecting a date displays:
 
-Posts
-
-Replies
-
-Scheduled Posts
-
-Create Post
-
-Users may immediately create new content from any date.
+- Published Posts
+- Replies
+- Scheduled Posts
+- Create Post
 
 The Create Post button redirects directly to Write.
 
+Planner never generates content automatically.
+
 ---
 
-## Draft Section
+### Draft Section
 
-Planner includes a Draft section.
+Planner includes a dedicated Draft section.
 
-Saved drafts remain here until users choose:
+Saved drafts remain here until the creator chooses:
 
 - Post Now
 - Schedule Post
@@ -492,104 +721,155 @@ Drafts never publish automatically.
 
 ---
 
+## Behaviour Rules
+
+Planner should remain simple.
+
+Its responsibility is organisation rather than recommendation.
+
+Creators should immediately recognise:
+
+- Empty publishing days.
+- Busy publishing days.
+- Scheduled content.
+- Published content.
+- Engagement activity.
+
+Planning decisions always remain with the creator.
+
+---
+
 # STATS
 
 ## Purpose
 
-Stats provides creators with meaningful performance insights.
+Stats helps creators understand why their performance changes.
 
-Statistics should help creators improve rather than overwhelm them.
+Rather than overwhelming creators with analytics,
 
----
+Stats combines performance metrics with AI-powered explanations.
 
-## Time Range
+Numbers provide visibility.
 
-Users may switch between:
-
-- Weekly
-- Monthly
+Stats Brain provides understanding.
 
 ---
 
-## Available Metrics
+## Stats Dashboard
 
-Followers
+The Stats Dashboard displays high-level performance metrics.
 
-Increase or decrease.
+Available metrics include:
 
----
-
-Views
-
-Overall account visibility.
-
----
-
-Clicks
-
-Direct product link clicks.
-
----
-
-Account Activity
-
-Measures overall creator activity.
-
-Includes:
-
-- Posts
-- Replies
-
----
-
-Engagement
-
-Combines:
-
+- Followers
+- Views
 - Likes
 - Replies
-- Reposts
+- Clicks
+- Account Activity
+- Engagement
+- Consistency Score
+
+The Stats Dashboard should remain clean, simple, and easy to scan.
+
+Its objective is helping creators quickly understand overall account performance.
+
+Detailed AI analysis appears only after the creator selects an individual metric.
 
 ---
 
-Consistency Score
+## Metric Details
 
-Measures creator consistency.
+Selecting any metric opens a dedicated details page.
 
-Factors include:
+Each details page displays:
 
-- Posting frequency
-- Reply activity
-- Mission completion
-- Scheduled content consistency
+- Historical trend.
+- Top contributing posts.
+- Performance comparison.
+- AI-generated explanation.
+
+Example:
+
+```
+Stats Dashboard
+
+↓
+
++1.8K Likes
+
+↓
+
+Likes Details
+
+↓
+
+Top Contributing Posts
+
+↓
+
+AI Analysis
+```
+
+Example recommendation:
+
+> Most of your likes come from educational threads explaining Pinterest strategies.
+
+The objective is helping creators understand the reasons behind performance rather than simply displaying numbers.
 
 ---
 
-Top Topics
+## Top Topics
 
-Displays topics generating the strongest performance.
+Displays topics generating the strongest overall performance.
 
----
-
-Best Performing Writing Mode
-
-Displays which Writing Mode consistently performs best.
+The objective is helping creators identify recurring patterns rather than isolated successes.
 
 ---
 
-AI Recommendation
+## Best Performing Writing Mode
 
-Aura AI analyses creator behaviour.
+Displays which Writing Mode consistently performs best for the Active Account.
 
 Examples:
 
-"Your Selling posts consistently outperform Informative posts."
+- Selling
+- Informative
+- Engagement
 
-or
+This helps creators understand which objective resonates most with their audience.
 
-"You haven't posted for three days."
+---
 
-Recommendations should remain practical and actionable.
+## AI Analysis
+
+Stats Brain performs analysis only when requested by the creator.
+
+Aura AI should never overwhelm creators with unnecessary recommendations.
+
+Instead,
+
+AI analysis should appear naturally after the creator explores a specific metric.
+
+Recommendations should always be:
+
+- Practical.
+- Evidence-based.
+- Actionable.
+
+The objective is improving future decision making rather than reporting historical numbers.
+
+---
+
+## Behaviour Rules
+
+Stats should prioritise understanding over analytics.
+
+Creators should leave the Stats page with a clear understanding of:
+
+- What performed well.
+- Why it performed well.
+- What can be improved next.
 
 ---
 
@@ -597,53 +877,66 @@ Recommendations should remain practical and actionable.
 
 ## Purpose
 
-Profile manages Aura AI preferences.
+Profile manages Aura AI account settings.
 
-It is not the user's social media profile.
+It is not the creator's public social media profile.
 
 ---
 
 ## Components
 
-Profile Information
+### Profile Information
 
-Aura AI account details.
+Displays Aura AI account details.
 
 ---
 
-Connected Accounts
+### Connected Accounts
 
-Displays all connected Threads accounts.
+Displays every connected Threads account.
 
 Only one account may remain Active.
 
-Changing the Active Account updates every feature throughout the application.
+Changing the Active Account immediately updates every AI-powered feature throughout Aura AI.
 
 ---
 
-Settings
+### Settings
 
 Application preferences.
 
 ---
 
-Subscription
+### Subscription
 
-Manage current subscription.
-
----
-
-Appearance
-
-Light Mode
-
-Dark Mode
+Manage the current subscription.
 
 ---
 
-Logout
+### Appearance
 
-Safely logs out of Aura AI.
+Available options:
+
+- Light Mode
+- Dark Mode
+
+Aura AI remembers the creator's preferred appearance automatically.
+
+---
+
+### Logout
+
+Safely signs the creator out of Aura AI.
+
+---
+
+## Behaviour Rules
+
+Profile centralises account management.
+
+Creators should never manually manage AI behaviour.
+
+Switching the Active Account should automatically update the entire Aura AI experience.
 
 ---
 
@@ -651,16 +944,48 @@ Safely logs out of Aura AI.
 
 Version 1 focuses exclusively on Threads.
 
-Future versions may introduce additional platforms.
+Future versions may introduce additional social media platforms.
 
-The current architecture is designed to support future expansion without changing existing user workflows.
+The current architecture is designed to support expansion without changing existing user workflows.
+
+Potential future platforms include:
+
+- X
+- Facebook
+- Pinterest
+- LinkedIn
+- Instagram
+
+New platforms should integrate through System Brain while preserving the same creator experience.
 
 ---
 
 # Engine Principle
 
-Every feature should remove decisions—not create more.
+Every feature should remove decisions rather than create more.
 
-Users should spend their time creating and engaging.
+Home provides clarity.
 
-Aura AI should handle everything else.
+Scout discovers conversations.
+
+Write creates content.
+
+Planner organises publishing.
+
+Stats explains performance.
+
+Profile manages the creator's experience.
+
+Behind every feature,
+
+System Brain coordinates every request.
+
+Aura Brain provides knowledge.
+
+Specialised Brains perform feature-specific reasoning.
+
+AURA protects quality whenever validation is required.
+
+The creator experiences one intelligent assistant.
+
+Aura AI handles the complexity behind the scenes.
