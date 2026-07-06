@@ -1,18 +1,20 @@
 # Aura AI System Architecture
 
-Version: 1.0  
-Status: Locked  
-Last Updated: 2026-07-05
+Version: 1.1
+Status: Locked
+Last Updated: 2026-07-06
 
 ---
 
 # Purpose
 
-This document defines the complete technical architecture behind Aura AI.
+This document defines the complete internal architecture of Aura AI.
 
-It explains how user requests flow through the system, how the internal AI engines operate, and how Aura Brain controls every AI decision.
+Rather than describing individual features, this document explains how every AI request is processed, how internal AI components interact, and how Aura AI coordinates specialised intelligence across the platform.
 
-This documentation is intended for developers and AI engineers only.
+It serves as the technical blueprint for developers building Aura AI.
+
+Every AI-powered feature should follow this architecture.
 
 ---
 
@@ -20,15 +22,19 @@ This documentation is intended for developers and AI engineers only.
 
 Aura AI is designed around one core principle:
 
-> **The user experiences simplicity while the AI handles complexity.**
+> **Users experience one intelligent assistant while multiple specialised AI systems collaborate behind the scenes.**
 
-Users should never need to understand how content is generated internally.
+Aura AI is not an AI writer.
 
-Every strategic decision, writing decision, validation process, optimisation, and quality control happens entirely behind the scenes.
+Aura AI is an AI Social Media Operating System.
 
-To users, there is only one product:
+Users should never need to understand which internal engine is responding to their request.
 
-Aura AI.
+Whether users generate content, discover conversations, analyse performance, or manage their publishing schedule,
+
+the experience should always feel like interacting with one consistent AI assistant.
+
+All complexity remains hidden behind the scenes.
 
 ---
 
@@ -47,19 +53,25 @@ Gemini API (Google AI Studio)
 
 ↓
 
+System Brain
+
+↓
+
 Aura Brain
 
 ↓
 
-HERO Engine
+Specialised Brain
+
+(HERO / Scout / Stats / Planner)
 
 ↓
 
-AURA Engine
+AURA Validation (if required)
 
 ↓
 
-Approved Output
+Approved Response
 
 ↓
 
@@ -70,9 +82,13 @@ Aura AI Frontend
 User
 ```
 
+Every request follows the same architecture regardless of which feature the user is currently using.
+
 ---
 
-# Component Overview
+# Core Components
+
+Aura AI consists of five primary internal components.
 
 ## Aura AI Frontend
 
@@ -80,15 +96,17 @@ The frontend is responsible only for user interaction.
 
 Responsibilities include:
 
-- Collect user inputs
-- Connect social media accounts
-- Display generated threads
-- Manage drafts
-- Manage scheduling
-- Display analytics
-- Handle publishing actions
+- Collecting user inputs.
+- Displaying AI responses.
+- Managing connected accounts.
+- Managing drafts.
+- Managing scheduled posts.
+- Displaying analytics.
+- Publishing approved content.
 
-The frontend never generates or validates content.
+The frontend never makes AI decisions.
+
+Its responsibility is presentation only.
 
 ---
 
@@ -96,256 +114,191 @@ The frontend never generates or validates content.
 
 Gemini is the language model powering Aura AI.
 
-Gemini is responsible for language generation only.
+Gemini is responsible for language generation and reasoning.
 
-It does not decide how to write.
+However,
 
-Every writing behaviour is controlled by Aura Brain.
+Gemini never decides how Aura AI behaves.
+
+Every behavioural rule, writing methodology, validation rule, and decision process is controlled entirely by Aura AI's internal architecture.
+
+Gemini provides intelligence.
+
+Aura AI provides direction.
+
+---
+
+## System Brain
+
+System Brain is Aura AI's central orchestration layer.
+
+It coordinates every AI request before any specialised AI component begins working.
+
+System Brain never generates content itself.
+
+Instead,
+
+it decides:
+
+- Which feature the user is requesting.
+- Which Active Account should be loaded.
+- Which knowledge should be loaded.
+- Which specialised AI component should execute the request.
+- Whether validation is required before returning the response.
+
+Every AI request passes through System Brain first.
+
+No internal AI component communicates directly with the frontend.
 
 ---
 
 ## Aura Brain
 
-Aura Brain is the central knowledge base of Aura AI.
+Aura Brain is Aura AI's permanent knowledge base.
 
-It stores every rule that controls the AI.
-
-Contents include:
-
-- Product philosophy
-- Writing methodologies
-- HERO Engine behaviour
-- AURA Engine behaviour
-- Writing mode definitions
-- Human writing guidelines
-- Psychology rules
-- CTA rules
-- Scoring standards
-- Prompt templates
-- Internal examples
-
-Aura Brain is the single source of truth.
-
-The application should never contain hardcoded writing logic.
-
-If Aura Brain changes, the AI behaviour changes.
-
----
-
-## HERO Engine
-
-HERO is the internal content generation engine.
-
-Its responsibility is to transform user intent into structured, high-retention Threads.
-
-HERO does not validate quality.
-
-HERO only generates content.
-
----
-
-## AURA Engine
-
-AURA is the internal validation engine.
-
-Its responsibility is to review HERO's output before it reaches the user.
-
-AURA improves weak sections, validates writing quality, and ensures every generated thread follows Aura Brain standards.
-
-Only approved content is returned to users.
-
----
-
-# User Input
-
-Before generation begins, Aura AI collects the following information:
-
-Required
-
-- Writing Mode
-- Topic
-- Connected Account
-- Number of Threads
-
-Optional
-
-- Language
-- Tone
-- Promotion Link
-- Link in Bio
-
-These inputs become the generation context used by HERO.
-
----
-
-# Generation Pipeline
-
-Every time the user presses **Generate**, Aura AI follows a single generation pipeline.
-
-```
-Load Aura Brain
-
-↓
-
-Read User Inputs
-
-↓
-
-Run HERO Engine
-
-↓
-
-Run AURA Engine
-
-↓
-
-Return Approved Output
-
-↓
-
-Display Results
-```
-
-The user never sees this process.
-
----
-
-# HERO Generation Process
-
-HERO follows four internal stages.
-
-```
-Understand
-
-↓
-
-Plan
-
-↓
-
-Structure
-
-↓
-
-Generate
-```
-
----
-
-## Understand
-
-HERO identifies:
-
-- Writing Mode
-- User objective
-- Topic
-- Tone
-- Language
-- Promotion settings
-
-HERO determines the intended outcome before writing begins.
-
----
-
-## Plan
-
-HERO decides the overall writing strategy.
+It stores every principle that controls AI behaviour.
 
 Examples include:
 
-- Thread direction
-- Psychological flow
-- Reading progression
-- Curiosity placement
-- Reveal timing
-- Outcome strategy
+- Product philosophy.
+- Human writing rules.
+- Reader psychology.
+- CTA psychology.
+- Digital marketing principles.
+- Threads best practices.
+- Content frameworks.
+- Blacklist rules.
+- Copywriting principles.
+- Platform behaviour.
+- Writing Modes.
+- Product documentation.
 
-Planning always happens before writing.
+Aura Brain is the single source of truth.
 
----
+If Aura Brain changes,
 
-## Structure
+Aura AI changes.
 
-HERO determines the most appropriate thread structure.
-
-Possible outputs include:
-
-```
-H
-
-↓
-
-E
-
-↓
-
-R
-
-↓
-
-O
-```
-
-or
-
-```
-H
-
-↓
-
-E
-
-↓
-
-R1
-
-↓
-
-R2
-
-↓
-
-O
-```
-
-The structure depends entirely on the topic.
-
-Users never manually choose the structure.
+The application itself should never contain hardcoded behavioural logic.
 
 ---
 
-## Generate
+## Specialised Brains
 
-Once planning is complete, HERO writes the thread.
+Specialised Brains perform feature-specific reasoning.
 
-If multiple threads are requested, HERO generates different angles while maintaining the selected Writing Mode.
+Each brain has one clearly defined responsibility.
 
-Example:
+Current specialised brains include:
 
-Thread 1
+- HERO Brain
+- Scout Brain
+- Stats Brain
+- Planner Brain
 
-Educational Angle
+Future versions may introduce additional specialised brains without changing the overall architecture.
 
-Thread 2
+Examples include:
 
-Contrarian Angle
+- Pinterest Brain
+- X Brain
+- Facebook Brain
+- Analytics Brain
 
-Thread 3
+Every specialised brain operates under the supervision of System Brain.
 
-Story Angle
-
-Every thread must pursue the same objective while providing different perspectives.
+They never execute independently.
 
 ---
 
-# AURA Validation Process
+## AURA Validation Engine
 
-After HERO finishes writing, AURA immediately begins validation.
+AURA is Aura AI's quality assurance engine.
 
-AURA follows four internal stages.
+Unlike the specialised brains,
+
+AURA does not create responses.
+
+Its responsibility is to review, refine, validate, and approve AI outputs before they reach users.
+
+Whenever validation is required,
+
+AURA becomes the final checkpoint.
+
+Only approved responses are returned to users.
+
+Users never see intermediate outputs or internal reasoning.
+
+
+---
+
+# Request Processing Pipeline
+
+Every AI request follows one standard processing pipeline.
+
+Regardless of whether the user is:
+
+- Generating content.
+- Refreshing Scout.
+- Viewing Stats.
+- Managing Planner.
+
+Aura AI always follows the same execution order.
 
 ```
-Analyze
+User Request
+
+↓
+
+System Brain
+
+↓
+
+Load Active Account
+
+↓
+
+Load Relevant Knowledge
+
+↓
+
+Dispatch Specialised Brain
+
+↓
+
+AURA Validation (if required)
+
+↓
+
+Approved Response
+
+↓
+
+Aura AI Frontend
+
+↓
+
+User
+
+↓
+
+Update Account Context (if applicable)
+```
+
+This pipeline ensures every feature behaves consistently while remaining adaptable to different creator accounts.
+
+---
+
+# System Brain Workflow
+
+Every request entering Aura AI follows six internal stages.
+
+```
+Identify
+
+↓
+
+Load
 
 ↓
 
@@ -353,190 +306,690 @@ Understand
 
 ↓
 
-Review
+Dispatch
 
 ↓
 
-Approve
+Validate
+
+↓
+
+Return
 ```
 
 ---
 
-## Analyze
+## Identify
 
-Analyze scans the generated thread.
+System Brain first determines:
 
-Checks include:
+- Which feature the user is using.
+- Which Active Account is selected.
+- What the user is trying to achieve.
 
-- Writing Mode
-- Topic consistency
-- HERO structure
-- Thread flow
-- Human readability
-- Overall coherence
+Examples include:
 
-No modifications happen during this stage.
+- Generate a new thread.
+- Refresh Scout.
+- Open Stats.
+- View Planner.
+
+No AI generation happens during this stage.
+
+---
+
+## Load
+
+Once the request is identified,
+
+System Brain loads:
+
+- Active Account Context.
+- Relevant Aura Brain knowledge.
+- Previous learning history.
+- Feature configuration.
+
+Aura AI never loads unnecessary knowledge.
+
+Only the information required for the current request should be loaded.
+
+This improves efficiency while keeping AI reasoning focused.
 
 ---
 
 ## Understand
 
-Understand identifies sections that fail Aura Brain standards.
+Before dispatching the request,
 
-Possible issues include:
+System Brain determines:
 
-- Weak Hook
-- Weak Engage
-- Weak Reveal
-- Weak Outcome
-- Wrong writing mode behaviour
-- Generic AI wording
-- Weak curiosity
-- Weak emotional progression
+- User objective.
+- Platform behaviour.
+- Feature requirements.
+- Relevant AI components.
 
-If necessary, AURA regenerates only the weak section.
-
-The entire thread is never regenerated.
-
-Internal reasoning produced during this stage is never shown to users.
+System Brain prepares the request before handing it to a specialised brain.
 
 ---
 
-## Review
+## Dispatch
 
-Review verifies that:
+Once preparation is complete,
 
-- HERO methodology is followed
-- Writing Mode objective is achieved
-- The thread meets Aura Brain standards
+System Brain selects the appropriate specialised brain.
 
-An internal compliance score is generated.
+Examples:
 
-This score is used only by Aura AI.
+Write
 
----
+↓
 
-## Approve
-
-Once validation is complete, AURA approves the thread.
-
-Only approved content is displayed to the user.
-
-Rejected versions are never exposed.
+HERO Brain
 
 ---
 
-# Promotion Behaviour
+Scout
 
-Promotion is optional.
+↓
 
-If no Promotion Link is provided:
-
-HERO generates a normal thread without promotional content.
+Scout Brain
 
 ---
 
-If a Promotion Link is provided:
+Stats
 
-HERO naturally integrates promotion into the Outcome section.
+↓
 
-Promotion should always feel helpful, conversational, and value-driven.
-
-Direct selling is never allowed.
+Stats Brain
 
 ---
 
-If **Link in Bio** is enabled:
+Planner
 
-HERO naturally references the user's bio as part of the CTA.
+↓
 
-Example:
+Planner Brain
 
-"I left more details in my bio if you're curious."
-
----
-
-If both **Promotion Link** and **Link in Bio** are provided:
-
-HERO combines both naturally.
-
-Example:
-
-"I explained everything in my bio, but if you want to skip straight to it, here's the link."
-
-The CTA should always prioritise curiosity before action.
-
-Readers should feel motivated to explore the solution themselves instead of feeling pressured to buy.
+Each specialised brain performs only its own responsibility.
 
 ---
 
-# Writing Mode Objectives
+## Validate
 
-Every generated thread must satisfy the selected Writing Mode.
+If the selected feature requires quality validation,
 
----
+System Brain automatically forwards the output to AURA.
 
-## Selling Mode
+Examples:
 
-Goal
+- Thread generation.
+- AI-generated Scout replies.
 
-Sell the solution.
+Features that primarily analyse existing data may not require AURA validation.
 
-Never sell the product.
+Examples:
 
-Outcome
+- Stats.
+- Planner recommendations.
 
-Readers should imagine a better life after using the solution.
-
----
-
-## Informative Mode
-
-Goal
-
-Help readers gain a new perspective.
-
-Outcome
-
-Readers should feel smarter after reading while naturally continuing the discussion.
+Validation requirements are determined automatically.
 
 ---
 
-## Engagement Mode
+## Return
 
-Goal
+Once processing is complete,
 
-Create opinions.
+the approved response is returned to the frontend.
 
-Outcome
+Users interact only with Aura AI.
 
-Readers should feel encouraged to leave comments and participate in the conversation.
+They never interact directly with System Brain or any specialised brain.
 
 ---
 
-# External Aura Score
+# Active Account Context
 
-After approval, every generated thread receives an overall Aura Score.
+Aura AI always operates using one Active Account.
 
-The score exists for one purpose:
+Every Threads account maintains its own completely independent AI context.
 
-Help users decide which generated thread should be prioritised for publishing.
+Account Context includes:
 
-Aura Score does not predict virality.
+- Writing history.
+- Scout history.
+- Performance history.
+- Draft history.
+- Scheduled posts.
+- Preferred Writing Mode.
+- Preferred tone.
+- Frequently discussed topics.
+- AI learning history.
+- Best-performing content.
 
-Aura Score measures compliance with Aura Brain standards.
+Each account behaves as though it has its own dedicated Aura AI.
+
+---
+
+# Context Isolation
+
+Active Account Context must remain completely isolated.
+
+Learning from one account should never influence another account.
+
+Examples:
+
+A business account should never receive recommendations based on a personal account.
+
+An affiliate account should never inherit writing behaviour from a creator account.
+
+Every account should develop independently over time.
+
+Switching the Active Account should immediately switch the entire AI context.
+
+---
+
+# Context Switching
+
+Whenever the Active Account changes,
+
+Aura AI immediately performs the following sequence.
+
+```
+Unload Current Context
+
+↓
+
+Load Selected Account Context
+
+↓
+
+Refresh Home
+
+↓
+
+Refresh Scout
+
+↓
+
+Refresh Write
+
+↓
+
+Refresh Planner
+
+↓
+
+Refresh Stats
+
+↓
+
+Ready
+```
+
+The transition should feel immediate.
+
+Users should never experience data leakage between accounts.
+
+---
+
+# Knowledge Loading
+
+Aura AI loads knowledge dynamically.
+
+Rather than loading every knowledge document,
+
+System Brain selects only the knowledge relevant to the current request.
+
+Examples include:
+
+Thread Generation may prioritise:
+
+- Human Writing.
+- Reader Psychology.
+- CTA Psychology.
+- Copywriting.
+- Threads Best Practices.
+- Platform Behaviour.
+- Blacklist.
+
+Scout may prioritise:
+
+- Human Writing.
+- Reader Psychology.
+- Threads Best Practices.
+- Platform Behaviour.
+- Blacklist.
+
+Stats may prioritise:
+
+- Platform Behaviour.
+- Digital Marketing.
+- Historical Performance Data.
+
+Knowledge loading should remain efficient.
+
+Only relevant knowledge should participate in the reasoning process.
+
+---
+
+# Decision Priority
+
+Whenever conflicting instructions exist,
+
+Aura AI resolves them using the following priority.
+
+```
+System Rules
+
+↓
+
+Platform Behaviour
+
+↓
+
+Active Account Context
+
+↓
+
+Feature Requirements
+
+↓
+
+Writing Mode
+
+↓
+
+Aura Brain Knowledge
+
+↓
+
+Specialised Brain
+
+↓
+
+AURA Validation
+```
+
+Higher-priority rules always override lower-priority decisions.
+
+This guarantees consistent behaviour across every feature.
+
+
+---
+
+# Feature Routing
+
+System Brain determines which specialised brain should process each request.
+
+Every feature has one primary reasoning engine.
+
+No feature should bypass System Brain.
+
+---
+
+## Write
+
+Write is Aura AI's content generation feature.
+
+When users request new content,
+
+System Brain dispatches the request to HERO Brain.
+
+```
+Write Request
+
+↓
+
+System Brain
+
+↓
+
+Load Active Account
+
+↓
+
+Load Relevant Knowledge
+
+↓
+
+HERO Brain
+
+↓
+
+AURA Validation
+
+↓
+
+Approved Thread
+
+↓
+
+Return to User
+```
+
+HERO is responsible only for content generation.
+
+AURA validates the generated thread before delivery.
+
+---
+
+## Scout
+
+Scout helps users discover conversations worth joining.
+
+When users refresh Scout,
+
+System Brain dispatches the request to Scout Brain.
+
+```
+Scout Request
+
+↓
+
+System Brain
+
+↓
+
+Load Active Account
+
+↓
+
+Load Relevant Knowledge
+
+↓
+
+Scout Brain
+
+↓
+
+AURA Validation
+
+↓
+
+Approved Opportunities
+
+↓
+
+Return to User
+```
+
+Scout Brain is responsible for:
+
+- Discovering relevant conversations.
+- Selecting valuable engagement opportunities.
+- Generating natural replies.
+- Matching replies to the active account.
+
+AURA validates AI-generated replies before they reach the user.
+
+---
+
+## Stats
+
+Stats analyses creator performance.
+
+Unlike HERO and Scout,
+
+Stats focuses on interpretation rather than generation.
+
+```
+Stats Request
+
+↓
+
+System Brain
+
+↓
+
+Load Active Account
+
+↓
+
+Load Performance Data
+
+↓
+
+Stats Brain
+
+↓
+
+Insights
+
+↓
+
+Recommendations
+
+↓
+
+Return to User
+```
+
+Stats Brain is responsible for:
+
+- Identifying performance patterns.
+- Comparing historical performance.
+- Explaining meaningful changes.
+- Suggesting actionable improvements.
+
+Stats should prioritise practical recommendations over excessive analytics.
+
+---
+
+## Planner
+
+Planner helps creators maintain publishing consistency.
+
+Planner combines scheduled content with intelligent planning assistance.
+
+```
+Planner Request
+
+↓
+
+System Brain
+
+↓
+
+Load Active Account
+
+↓
+
+Load Calendar
+
+↓
+
+Planner Brain
+
+↓
+
+Recommendations
+
+↓
+
+Return to User
+```
+
+Planner Brain is responsible for:
+
+- Analysing publishing consistency.
+- Identifying empty publishing days.
+- Suggesting scheduling improvements.
+- Supporting long-term content planning.
+
+Planner should simplify planning rather than increase complexity.
+
+---
+
+# Specialised Brain Responsibilities
+
+Each specialised brain has one clearly defined responsibility.
+
+## HERO Brain
+
+Responsible for:
+
+- Content generation.
+- Psychological structure.
+- Writing strategy.
+- Thread creation.
+
+HERO never validates quality.
+
+---
+
+## Scout Brain
+
+Responsible for:
+
+- Conversation discovery.
+- Engagement opportunities.
+- Reply generation.
+- Topic relevance.
+
+Scout never generates long-form content.
+
+---
+
+## Stats Brain
+
+Responsible for:
+
+- Performance analysis.
+- Trend identification.
+- Recommendation generation.
+- Growth insights.
+
+Stats never creates content.
+
+---
+
+## Planner Brain
+
+Responsible for:
+
+- Publishing recommendations.
+- Calendar assistance.
+- Scheduling intelligence.
+- Consistency guidance.
+
+Planner never generates threads.
+
+---
+
+# Learning Pipeline
+
+Aura AI improves through observation.
+
+Learning should never occur immediately after generation.
+
+Instead,
+
+every AI interaction follows the following lifecycle.
+
+```
+Generated
+
+↓
+
+Approved
+
+↓
+
+Published
+
+↓
+
+Performance Collected
+
+↓
+
+Learning
+
+↓
+
+Update Active Account Context
+```
+
+Only published content contributes to future learning.
+
+Generated drafts should never become permanent learning signals.
+
+This prevents accidental bias from unused content.
+
+---
+
+# Continuous Adaptation
+
+Each Active Account gradually develops its own behavioural profile.
+
+Aura AI may learn:
+
+- Frequently discussed topics.
+- Preferred Writing Modes.
+- Preferred tone.
+- Common editing behaviour.
+- High-performing content themes.
+- Successful publishing habits.
+
+The longer an account uses Aura AI,
+
+the more personalised the experience becomes.
+
+Learning should always remain specific to the Active Account.
+
+---
+
+# Knowledge Evolution
+
+Aura Brain is designed to evolve.
+
+New knowledge may be added without changing the overall architecture.
+
+Examples include:
+
+- New platform behaviour.
+- Improved psychology research.
+- Updated writing methodologies.
+- New product capabilities.
+
+Specialised brains automatically benefit from updated knowledge through System Brain.
+
+Behaviour improves without requiring structural redesign.
+
+
+---
+
+# Internal Reasoning
+
+Aura AI performs extensive internal reasoning during request processing.
+
+This reasoning may include:
+
+- Understanding user intent.
+- Selecting the appropriate knowledge.
+- Choosing the correct specialised brain.
+- Planning generation strategy.
+- Validating quality.
+- Identifying improvements.
+
+Internal reasoning exists solely to improve response quality.
+
+It is never exposed to users.
+
+Users interact only with the final approved response.
 
 ---
 
 # User Editing
 
-Once approved content reaches the user:
+Once approved content reaches the user,
 
-HERO's responsibility ends.
+Aura AI's responsibility ends.
 
-AURA's responsibility ends.
+If the creator edits generated content,
 
-If the user edits the thread:
+the edited version becomes entirely user-owned.
 
 ```
 Approved Thread
@@ -550,41 +1003,76 @@ User Edit
 Draft Mode
 ```
 
-From this point onward, the content belongs entirely to the user.
+Aura AI never automatically revalidates manually edited drafts.
 
-Aura AI no longer validates or modifies the edited version.
+If users require further improvements,
+
+they should request a new AI generation.
+
+The creator always has the final decision.
 
 ---
 
 # Publishing Workflow
 
+Approved content may follow one of three paths.
+
+```
 Approved Thread
 
 ↓
 
 User Decision
 
-↓
-
-Copy
-
-OR
-
-Save Draft
-
-OR
-
-Schedule Draft
-
-OR
+├── Post Now
+├── Save Draft
+└── Schedule Post
+```
 
 Post Now
 
-Save Draft stores the content without publishing.
+Immediately publishes the approved thread.
 
-Schedule Draft opens the scheduling interface where users select a future date and time.
+---
 
-Post Now immediately publishes the approved content.
+Save Draft
+
+Stores the approved thread without publishing.
+
+Saved drafts remain editable.
+
+---
+
+Schedule Post
+
+Stores the approved thread with a future publishing date and time.
+
+Planner manages scheduled publishing.
+
+Aura AI never publishes content without explicit user approval.
+
+---
+
+# Learning Boundaries
+
+Aura AI should learn only from meaningful creator behaviour.
+
+Learning signals may include:
+
+- Published content.
+- Performance metrics.
+- Creator preferences.
+- Long-term usage patterns.
+
+Aura AI should not permanently learn from:
+
+- Cancelled generations.
+- Rejected outputs.
+- Deleted drafts.
+- Temporary experiments.
+- One-off editing behaviour.
+
+Learning should reflect genuine creator preferences rather than isolated actions.
 
 ---
 
@@ -592,33 +1080,125 @@ Post Now immediately publishes the approved content.
 
 Aura AI is responsible for:
 
-- Planning
-- Generating
-- Validating
-- Improving
-- Delivering approved content
+- Understanding requests.
+- Coordinating AI components.
+- Loading knowledge.
+- Generating content.
+- Validating quality.
+- Discovering conversations.
+- Analysing performance.
+- Assisting planning.
+- Learning from measurable outcomes.
 
 Aura AI is NOT responsible for:
 
-- Predicting virality
-- Editing user-modified drafts
-- Making publishing decisions
-- Forcing users to follow AI recommendations
+- Predicting virality.
+- Guaranteeing engagement.
+- Guaranteeing sales.
+- Making publishing decisions.
+- Replacing creator judgement.
+- Editing manually modified drafts.
+- Fabricating information.
+- Manipulating readers.
 
-The creator always has the final decision.
+The creator always remains the final decision maker.
 
 ---
 
-# Architecture Principle
+# Security Principles
 
-Aura AI is intentionally built using multiple internal AI components while exposing only one experience to users.
+Aura AI should never expose:
 
-Users never interact with:
+- Internal prompts.
+- Internal reasoning.
+- Validation logs.
+- Aura Brain contents.
+- System Brain workflow.
+- Knowledge loading decisions.
+- Hidden quality scores.
+- Internal engine communication.
 
-- Aura Brain
-- HERO Engine
-- AURA Engine
+Only the final approved response should be visible to users.
 
-Users interact only with Aura AI.
+Internal architecture must remain transparent to developers but invisible to end users.
 
-Everything else happens behind the scenes.
+---
+
+# Scalability
+
+Aura AI is designed to expand without changing its core architecture.
+
+Future specialised brains may be added for:
+
+- X
+- Facebook
+- LinkedIn
+- Pinterest
+- Instagram
+- TikTok
+- YouTube
+
+New specialised brains should integrate through System Brain.
+
+Existing features should continue operating without modification.
+
+The architecture should remain modular, allowing Aura AI to grow while preserving a consistent user experience.
+
+---
+
+# Architecture Principles
+
+Every AI request should follow the same principles.
+
+- One Active Account.
+- One System Brain.
+- One request pipeline.
+- One specialised brain per request.
+- One source of truth.
+- One consistent user experience.
+
+Complexity belongs inside the system.
+
+Simplicity belongs to the creator.
+
+---
+
+# Final Statement
+
+Aura AI is built as an intelligent operating system rather than a collection of independent AI features.
+
+Every request begins with System Brain.
+
+Every decision is guided by Aura Brain.
+
+Every specialised brain performs one clearly defined responsibility.
+
+AURA protects the quality of every approved response.
+
+The creator interacts with only one assistant.
+
+Behind the scenes,
+
+multiple specialised AI systems collaborate seamlessly to deliver a simple, intelligent, and consistent experience.
+
+---
+
+# Engine Principle
+
+System Brain does not generate content.
+
+It determines how every request should be understood, processed, and completed.
+
+Aura Brain provides knowledge.
+
+Specialised Brains provide expertise.
+
+AURA provides quality assurance.
+
+Together,
+
+they form one unified intelligence.
+
+Users never interact with individual components.
+
+They interact only with Aura AI.
