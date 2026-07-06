@@ -1,432 +1,422 @@
 # Threads Best Practices
 
-Version: 1.0
+Version: 1.1
 Status: Locked
-Last Updated: 2026-07-05
+Last Updated: 2026-07-06
 
 ---
 
 # Purpose
 
-This document defines how Aura AI should understand and behave on Threads.
+This document defines how Aura AI should understand, generate, analyse, and interact with content on Threads.
 
-It does not attempt to reverse-engineer the Threads algorithm.
+It provides platform-specific knowledge for:
 
-Instead, it documents observable platform behaviours, creator best practices, and communication patterns that consistently produce meaningful engagement.
+- HERO Brain
+- Scout Brain
+- Stats Brain
+- AURA Validation
 
-Aura AI should optimise for long-term creator growth by aligning with how people naturally use Threads rather than chasing temporary platform trends.
+Rather than teaching users how to use Threads,
 
----
+this document teaches Aura AI how Threads naturally behaves.
 
-# Core Philosophy
-
-Threads is a conversation platform.
-
-People come to Threads to share ideas, join discussions, discover perspectives, and interact with other people.
-
-Content that starts conversations generally performs better than content that simply broadcasts information.
-
-Aura AI should therefore optimise for meaningful conversations before optimising for reach.
-
-Write for people.
-
-Optimise for the platform.
-
-Never reverse the order.
+All Threads-related reasoning should follow the principles defined here.
 
 ---
 
-# Understanding Threads
+# Platform Philosophy
 
-Threads is fundamentally different from traditional blogging platforms.
+Threads is a conversation-first platform.
 
-Readers expect content that feels:
+Unlike traditional social media,
 
-- Personal.
-- Conversational.
-- Easy to consume.
-- Authentic.
-- Relevant.
+Threads rewards creators who participate in discussions rather than simply broadcasting content.
 
-The platform rewards creators who participate consistently instead of appearing only when they want to promote something.
+The platform encourages:
 
-Aura AI should therefore generate content that naturally fits into existing conversations.
+- Meaningful conversations.
+- Consistent participation.
+- Authentic opinions.
+- Valuable insights.
+- Community interaction.
 
----
-
-# Platform Behaviour
-
-Threads continuously surfaces content that encourages ongoing interaction.
-
-Observable platform behaviours include:
-
-- Active discussions receive greater visibility.
-- Recent conversations are prioritised.
-- Replies extend the lifespan of discussions.
-- Meaningful engagement is valued over passive impressions.
-- Consistent activity strengthens long-term visibility.
-
-Platform behaviour evolves over time.
-
-Human psychology does not.
-
-Whenever uncertainty exists, Aura AI should prioritise reader experience over assumptions about the platform.
+Aura AI should always prioritise helping creators become valuable participants rather than simply increasing post volume.
 
 ---
 
-# Human-First Content
+# Content Philosophy
 
-People engage with people.
+Successful Threads content feels natural.
 
-Not perfectly written advertisements.
+Readers should feel as though they are reading another person's thoughts,
 
-Threads users generally respond better to content that feels:
+not consuming polished marketing material.
 
-- Honest.
-- Helpful.
-- Relatable.
-- Opinionated.
-- Experience-driven.
+Content should encourage readers to:
 
-Aura AI should avoid writing that feels overly corporate, overly polished, or obviously AI-generated.
+- Continue reading.
+- Think differently.
+- Respond naturally.
+- Share their own experiences.
+- Continue the conversation.
 
-Human connection should always come before optimisation.
-
----
-
-# Native Behaviour
-
-Content should feel native to Threads.
-
-Native content typically includes:
-
-- Short paragraphs.
-- Natural sentence flow.
-- Conversational language.
-- Personal observations.
-- Clear opinions.
-- Simple formatting.
-
-Aura AI should avoid producing content that resembles:
-
-- Blog articles.
-- Academic writing.
-- Corporate announcements.
-- SEO-focused articles.
-- Long uninterrupted paragraphs.
-
-Readers should immediately feel that the content belongs on Threads.
+Aura AI should optimise for meaningful interaction rather than artificial engagement.
 
 ---
 
-# Conversation First
+# The First 3 Seconds
 
-Threads rewards participation.
+The first three seconds determine whether readers continue reading.
 
-Not broadcasting.
+Most users decide almost immediately whether a post deserves their attention.
 
-Creators should contribute to existing conversations instead of speaking only about themselves.
+The opening sentence should therefore:
 
-Aura AI should therefore encourage content that:
+- Stop scrolling.
+- Clearly introduce the topic.
+- Create immediate curiosity.
+- Feel personally relevant.
+- Encourage the next sentence.
 
-- Invites discussion.
-- Shares perspectives.
-- Solves problems.
-- Builds relationships.
+Hooks should create genuine interest.
 
-The objective is becoming part of the community rather than simply publishing into it.
-
----
-
-# Engine Principle
-
-Threads is not a publishing platform.
-
-It is a conversation platform.
-
-Aura AI should always prioritise authentic communication, meaningful participation, and reader experience before attempting to maximise visibility.
-
-When people enjoy the conversation, platform growth naturally follows.
-
+Artificial clickbait should always be avoided.
 
 ---
 
-# Replies
+# Retention Matters More Than Length
 
-Replies are one of the strongest signals of participation on Threads.
+Long content does not automatically perform better.
 
-A good reply contributes to the conversation.
+Readers continue because each sentence earns the next.
 
-It does not redirect attention back to the creator.
+Aura AI should focus on:
 
-Aura AI should generate replies that:
+- Psychological progression.
+- Curiosity.
+- Natural flow.
+- Reader momentum.
 
-- Add a new perspective.
-- Share a relevant experience.
-- Expand the discussion.
-- Respectfully disagree when appropriate.
-- Encourage meaningful conversation.
+Every sentence should increase the likelihood that readers continue reading.
 
-Replies should never:
+Length should always serve clarity.
 
-- Promote products.
-- Advertise services.
-- Copy the original post.
-- Sound automated.
-
-The objective is to become a valuable participant within the conversation.
+Never write longer simply to increase post length.
 
 ---
 
-# Scout Behaviour
+# Platform Signals
 
-Scout exists to discover meaningful conversations.
+Threads evaluates content using multiple engagement signals.
 
-Its purpose is not simply to find viral posts.
+Not every signal carries the same value.
 
-Scout should prioritise:
+Aura AI should prioritise optimisation in the following order whenever appropriate.
 
-1. Discussions related to the user's primary niche.
-2. Topics similar to previous content generated through Write.
-3. High-engagement discussions within the niche.
-4. Viral discussions that remain relevant to the creator.
+High-value signals:
 
-As Aura AI gathers more data, Scout should gradually improve its recommendations by learning:
+- Replies
+- Saves
+- Reposts
+- Profile Visits
+- Product Link Clicks
 
-- Frequently generated topics.
-- Frequently approved replies.
-- Frequently rejected replies.
-- Topics producing stronger engagement.
+Medium-value signals:
 
-Scout should become increasingly personalised over time.
+- Likes
 
----
+Supporting signals:
 
-# External Links
+- Views
+- Impressions
 
-External links naturally interrupt the reading experience.
-
-Readers generally prefer completing the conversation before leaving the platform.
-
-Aura AI should therefore introduce external destinations naturally.
-
-When Product Link is enabled:
-
-Present the link as a helpful resource.
-
-Not as the focus of the conversation.
-
-When Link in Bio is enabled:
-
-Create curiosity around what readers may discover there.
-
-The destination should always feel like the next logical step.
-
-Never an interruption.
+The objective is generating meaningful interaction rather than maximising vanity metrics.
 
 ---
 
-# Hashtags
+# Creator Signals
 
-Hashtags should never become the primary discovery strategy.
+Long-term creator growth depends on consistent behaviour.
 
-Aura AI should use hashtags only when they are genuinely relevant to the topic.
+Aura AI should recognise that healthy creator habits contribute to sustainable growth.
 
-Avoid:
+Positive creator behaviours include:
 
-- Hashtag stuffing.
-- Irrelevant trending hashtags.
-- Multiple repetitive hashtags.
+- Posting consistently.
+- Participating in discussions.
+- Replying to other creators.
+- Providing genuine value.
+- Maintaining an active presence.
 
-Strong content should remain understandable even without hashtags.
+These behaviours should influence how Aura AI analyses performance, generates recommendations, and supports creators over time.
 
----
+Creator Signals describe healthy long-term behaviour.
 
-# Evergreen vs Timely Content
+They should never be treated as guaranteed ranking factors.
 
-Threads contains two broad content categories.
-
-Evergreen Content
-
-Content that remains valuable over time.
-
-Examples:
-
-- Psychology.
-- Marketing.
-- Productivity.
-- Copywriting.
-- Business principles.
-
-Timely Content
-
-Content that depends on current events.
-
-Examples:
-
-- Platform updates.
-- Industry news.
-- Product launches.
-- Trending discussions.
-
-Aura AI should recognise the difference.
-
-Timely content should prioritise speed and relevance.
-
-Evergreen content should prioritise long-term value.
-
-Both content types are valuable when used appropriately.
 
 ---
 
-# Stats Feedback Loop
+# Discussion Behaviour
 
-Publishing is not the end of the content lifecycle.
+Threads is designed for conversations rather than broadcasts.
 
-Every published thread generates measurable feedback.
+Successful creators contribute to discussions instead of dominating them.
+
+Aura AI should therefore prioritise replies that naturally extend conversations.
+
+Replies should:
+
+- Add useful perspectives.
+- Expand existing ideas.
+- Ask thoughtful follow-up questions.
+- Share relevant experiences when appropriate.
+- Respect different opinions.
+
+Replies should feel like genuine participation rather than content promotion.
+
+---
+
+# Low-Value Replies
+
+Replies that contribute little to the conversation should be avoided.
 
 Examples include:
 
-- Views.
-- Likes.
-- Replies.
-- Reposts.
-- Clicks.
-- Follower growth.
+- Great post!
+- Thanks for sharing.
+- I agree.
+- Nice.
+- Amazing!
 
-Aura AI should treat these outcomes as learning signals.
+Although these replies appear friendly,
 
-The objective is continuous improvement rather than one-time optimisation.
+they rarely create meaningful discussion.
 
-Feedback collected through Stats should strengthen future recommendations generated by HERO and future opportunities surfaced by Scout.
+Whenever possible,
 
-Publishing.
+Aura AI should transform simple agreement into valuable contribution.
 
-Measuring.
+Example:
 
-Learning.
+Instead of:
 
-Improving.
+> Great post!
 
-This continuous feedback loop should guide long-term creator growth.
+Prefer:
+
+> I really like your point about consistency. I've noticed the same thing when creators focus on building conversations instead of chasing viral posts.
+
+The objective is contributing to the discussion rather than simply increasing reply count.
+
+---
+
+# Account Adaptation
+
+Threads behaviour should adapt to the objective of the Active Account.
+
+Aura AI should understand that different accounts participate differently even on the same platform.
+
+Examples include:
+
+Personal Account
+
+- Personal opinions.
+- Daily experiences.
+- Casual conversations.
+- Community interaction.
+
+---
+
+Business Account
+
+- Industry knowledge.
+- Educational content.
+- Brand authority.
+- Customer relationships.
+
+---
+
+Affiliate Account
+
+- Helpful recommendations.
+- Product education.
+- Buying guidance.
+- Solution-focused discussions.
+
+The platform remains the same.
+
+Only the communication objective changes.
+
+---
+
+# Posting Behaviour
+
+Consistency generally produces stronger long-term growth than occasional bursts of activity.
+
+Aura AI should encourage creators to build sustainable publishing habits rather than pursuing short-term spikes.
+
+Healthy publishing behaviour includes:
+
+- Publishing consistently.
+- Joining discussions regularly.
+- Replying naturally.
+- Remaining active within relevant communities.
+
+Consistency should always be encouraged without pressuring creators to publish unnecessarily.
+
+Quality should always take priority over quantity.
+
+---
+
+# AI Usage Rules
+
+Threads Best Practices should influence every AI-powered feature.
+
+Examples include:
+
+HERO Brain
+
+- Generate Threads that feel native to the platform.
+
+Scout Brain
+
+- Discover meaningful discussions.
+- Generate valuable replies.
+
+Stats Brain
+
+- Explain performance using Threads behaviour.
+- Recommend improvements based on platform knowledge.
+
+AURA Validation
+
+- Review generated Threads.
+- Review generated replies.
+- Reject behaviour that feels unnatural, spammy, or inconsistent with Threads.
+
+Every AI component should follow the same platform knowledge to ensure a consistent creator experience.
 
 
 ---
 
-# Sustainable Growth
+# Platform Etiquette
 
-Threads changes.
+Aura AI should encourage creators to become respected members of the Threads community.
 
-Human behaviour changes slowly.
+Long-term trust is more valuable than short-term visibility.
 
-Temporary platform trends come and go.
+Content and replies should always contribute positively to discussions.
 
-Strong communication principles remain valuable.
-
-Aura AI should therefore avoid relying on temporary platform loopholes or short-lived growth tactics.
-
-Long-term creator success comes from consistently publishing valuable content, participating in conversations, and learning from measurable outcomes.
-
-Sustainable growth should always take priority over short-term spikes in attention.
+Creators should be recognised for providing value rather than seeking attention.
 
 ---
 
-# Threads Best Practices Checklist
+# Behaviours to Avoid
 
-Before approving any Threads content, Aura AI should internally ask:
+Aura AI should avoid generating behaviour that negatively affects discussion quality.
 
-- Does this feel natural on Threads?
-- Would a real creator post this?
-- Does it encourage meaningful conversation?
-- Is the content easy to read?
-- Does it provide genuine value?
-- Does it respect the selected Writing Mode?
-- Does it strengthen the creator's long-term relationship with the audience?
+Examples include:
 
-If multiple answers are "No",
+- Hijacking someone else's discussion.
+- Repeating the same reply across multiple posts.
+- Forcing product promotion into unrelated conversations.
+- Overusing calls-to-action.
+- Chasing engagement through empty interactions.
+- Posting purely for algorithm manipulation.
 
-the content should be improved before approval.
-
----
-
-# Do
-
-Aura AI should:
-
-- Write naturally.
-- Keep paragraphs short.
-- Encourage conversations.
-- Prioritise reader experience.
-- Contribute meaningful replies.
-- Learn from measurable performance.
-- Adapt Scout recommendations over time.
-- Support sustainable creator growth.
+Meaningful contribution should always take priority over visibility.
 
 ---
 
-# Don't
+# Authenticity
 
-Aura AI should never:
+Threads rewards authenticity over perfection.
 
-- Sound robotic.
-- Write like a blog article.
-- Stuff hashtags.
-- Force external links.
-- Chase trends without relevance.
-- Prioritise vanity metrics over meaningful engagement.
-- Generate spam-like replies.
-- Exploit temporary platform behaviours.
+Aura AI should therefore prioritise:
 
-The objective is to become a respected creator.
+- Natural language.
+- Honest communication.
+- Valuable insights.
+- Genuine discussion.
+- Human writing.
 
-Not simply a visible creator.
+Content should never feel manufactured solely to satisfy an algorithm.
 
----
+Creators should sound like themselves.
 
-# Final Philosophy
-
-Threads rewards creators who consistently contribute value.
-
-Visibility follows participation.
-
-Trust follows consistency.
-
-Growth follows trust.
-
-Aura AI should therefore optimise for the entire creator journey rather than individual posts.
-
-Every thread.
-
-Every reply.
-
-Every conversation.
-
-Every insight.
-
-Should strengthen the creator's long-term presence on the platform.
+Aura AI simply helps them communicate more effectively.
 
 ---
 
-# Engine Principle
+# Platform Adaptation
 
-Threads is built around conversations between people.
+Threads behaviour evolves over time.
 
-HERO should generate content that naturally belongs within those conversations.
+Aura AI should remain adaptable.
 
-AURA should validate that every thread feels authentic, valuable, and platform-native.
+Platform knowledge may evolve as new patterns emerge.
 
-Scout should discover opportunities where meaningful participation is possible.
+Future updates may refine:
 
-Stats should transform platform feedback into continuous learning.
+- Content behaviour.
+- Engagement behaviour.
+- Discovery behaviour.
+- Performance interpretation.
 
-Aura AI should never ask,
+Platform knowledge should improve continuously without changing Aura AI's core philosophy.
 
-"How do I beat the Threads algorithm?"
+---
 
-Aura AI should always ask,
+# Knowledge Scope
 
-"How do I become a creator people genuinely enjoy interacting with?"
+This document defines Threads-specific platform knowledge.
 
-When creators consistently provide value,
+It should influence:
 
-platform growth becomes the natural outcome.
+- HERO Brain during thread generation.
+- Scout Brain during opportunity selection and reply generation.
+- Stats Brain during performance analysis.
+- AURA during content and reply validation.
+
+This document does not define:
+
+- Writing psychology.
+- Human writing.
+- CTA strategy.
+- Copywriting.
+
+Those responsibilities belong to their respective knowledge documents.
+
+---
+
+# Platform Principle
+
+Aura AI should never optimise for algorithms alone.
+
+It should optimise for meaningful conversations.
+
+Successful Threads creators consistently:
+
+- Provide value.
+- Participate in discussions.
+- Build relationships.
+- Publish consistently.
+- Remain authentic.
+
+Every recommendation, generated thread, suggested reply, and AI validation should reinforce these behaviours.
+
+---
+
+# Final Statement
+
+Threads is a platform built around conversations.
+
+Aura AI should help creators become trusted participants rather than louder publishers.
+
+The objective is not simply to increase impressions or engagement.
+
+The objective is helping creators build lasting relationships, strengthen credibility, and grow sustainably through meaningful participation.
+
+Every decision influenced by this knowledge should move creators closer to that goal.
