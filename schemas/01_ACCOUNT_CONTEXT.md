@@ -8,25 +8,31 @@ Last Updated: 2026-07-07
 
 # Purpose
 
-Account Context defines the active working environment for Aura AI.
+The Account Context Schema defines the active operating environment for Aura AI.
 
-It represents the currently selected Threads account and provides the shared context used across every business feature.
+It establishes which connected Threads account the platform is currently working with and provides the shared business context used across every feature.
 
-Unlike the User Profile, which stores creator preferences, Account Context determines which connected Threads account the platform is currently operating on.
-
-Every feature should read from the active Account Context before performing any business operation.
+Rather than representing the creator themselves, the Account Context represents the identity under which Aura AI performs all business operations.
 
 ---
 
-# Schema Overview
+# Definition
 
-An Account Context represents one connected Threads account within a single Aura AI account.
+An Account Context is a dedicated workspace for a single connected Threads account.
 
-Each Aura AI account may contain multiple connected Threads accounts.
+Each Aura AI account may contain multiple Account Contexts, allowing creators to manage different Threads accounts independently from one another.
 
 Only one Account Context can be active at any given time.
 
-Switching the active account updates the context used by:
+Every business operation performed within Aura AI belongs to the currently active Account Context.
+
+---
+
+# Scope
+
+The Account Context Schema applies to every creator-facing feature within Aura AI.
+
+This includes:
 
 - Home
 - Write
@@ -34,78 +40,36 @@ Switching the active account updates the context used by:
 - Planner
 - Stats
 
-without affecting the creator's overall Aura AI account.
+Each feature should always operate using the currently active Account Context.
+
+No feature should access data belonging to another Account Context unless the creator explicitly switches accounts.
 
 ---
 
-# Core Properties
+# Core Concept
 
-Each Account Context contains:
+Aura AI separates the creator's identity from the social media accounts they manage.
 
-- Connected Threads Account
-- Threads Username
-- Account Status
-- Active Context State
-- Connected Timestamp
-- Last Active Timestamp
+```
+Aura Account
+        │
+        ├──────────────┐
+        │              │
+        ▼              ▼
+Account Context A   Account Context B
+(@brand_a)          (@personal)
 
-The schema represents the current operating context rather than permanent creator information.
+        │              │
+        ▼              ▼
+Own Data         Own Data
+Own Planner      Own Planner
+Own Drafts       Own Drafts
+Own Stats        Own Stats
+Own Replies      Own Replies
+```
 
----
+Each Account Context behaves as an independent business workspace.
 
-# Relationships
+Although multiple contexts belong to the same Aura AI account, they never share operational data.
 
-Account Context collaborates with the following business schemas:
-
-- User Profile
-- Thread
-- Scout
-- Planner
-- Stats
-- Draft
-- Reply
-- Analysis
-
-Every business object belongs to exactly one active Account Context.
-
-This separation ensures that activity from different Threads accounts never becomes mixed together.
-
----
-
-# Context Switching
-
-When creators switch between connected Threads accounts:
-
-- Home updates to the selected account.
-- Write generates content for the selected account.
-- Scout searches using the selected account.
-- Planner displays activities belonging to the selected account.
-- Stats display analytics for the selected account.
-- Drafts belonging to the selected account become available.
-
-The switch changes the active working context only.
-
-No creator preferences or historical data are lost.
-
----
-
-# Ownership
-
-Each Account Context owns:
-
-- Thread history
-- Reply history
-- Drafts
-- Planner activities
-- Statistics
-- AI analysis history
-
-These business objects remain isolated within their respective account contexts.
-
----
-
-# Final Statement
-
-Account Context establishes the operational boundary for every creator workflow within Aura AI.
-
-By separating multiple connected Threads accounts into independent contexts, the platform allows creators to manage several brands or identities from a single Aura AI account while preserving complete separation between their content, engagement history, planning, and performance.
+This separation ensures every Threads account maintains its own content history, planning activities, engagement records, and performance metrics while remaining accessible through a single Aura AI account.
