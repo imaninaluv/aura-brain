@@ -93,6 +93,7 @@ Preparation happens first.
 Interaction happens second.
 
 
+
 ---
 
 # Discovery Principles
@@ -173,6 +174,7 @@ The queue should continuously maintain fresh engagement opportunities while pres
 
 
 
+
 ---
 
 # Opportunity Framework
@@ -247,6 +249,8 @@ The queue should remain populated with creator-ready opportunities.
 As opportunities become outdated or are consumed, Scout should replace them with newly prepared opportunities to maintain a seamless creator experience.
 
 
+
+
 ---
 
 # Reply Generation Rules
@@ -316,6 +320,7 @@ Every Reply entering the ready queue should satisfy Scout's quality standards.
 As opportunities are consumed or refreshed, newly generated Replies should maintain the same level of relevance, authenticity, and conversational quality.
 
 The queue should consistently contain engagement opportunities that the creator can confidently review, edit, and publish.
+
 
 
 
